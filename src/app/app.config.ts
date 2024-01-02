@@ -77,3 +77,12 @@ export const appConfig: ApplicationConfig = {
 //    Adicionado na aula 25.
 //    Pq precisava de INTERCEPTOR.
 //       Com o comando: // "ng g interceptor core/interceptors/loading --skip-tests" // --skip-tests é para não gerar o arquivo de testes.
+import { ApplicationConfig } from '@angular/core';
+import { provideRouter } from '@angular/router';
+
+import { routes } from './app.routes';
+import { provideClientHydration } from '@angular/platform-browser';
+
+export const appConfig: ApplicationConfig = {
+  providers: [provideRouter(routes), provideClientHydration()]
+};

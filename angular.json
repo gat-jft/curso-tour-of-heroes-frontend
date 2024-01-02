@@ -20,12 +20,24 @@
             "outputPath": "dist/curso-tour-of-heroes-frontend",
             "index": "src/index.html",
             "browser": "src/main.ts",
+
             "polyfills": ["zone.js"],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
               "@angular/material/prebuilt-themes/indigo-pink.css",
+
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
               "src/styles.scss"
             ],
             "scripts": [],
@@ -49,17 +61,21 @@
                   "maximumError": "4kb"
                 }
               ],
+
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
                   "with": "src/environments/environment.prod.ts"
                 }
               ],
+
+
               "outputHashing": "all"
             },
             "development": {
               "optimization": false,
               "extractLicenses": false,
+
               "sourceMap": true,
               "fileReplacements": [
                 {
@@ -67,6 +83,8 @@
                   "with": "src/environments/environment.development.ts"
                 }
               ]
+
+              "sourceMap": true
             }
           },
           "defaultConfiguration": "production"
@@ -78,8 +96,11 @@
               "buildTarget": "curso-tour-of-heroes-frontend:build:production"
             },
             "development": {
+
               "buildTarget": "curso-tour-of-heroes-frontend:build:development",
               "proxyConfig": "src/proxy.conf.json"
+
+              "buildTarget": "curso-tour-of-heroes-frontend:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -99,6 +120,19 @@
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
               "@angular/material/prebuilt-themes/indigo-pink.css",
+
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "tsconfig.spec.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+
               "src/styles.scss"
             ],
             "scripts": []

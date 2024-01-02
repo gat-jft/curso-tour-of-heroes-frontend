@@ -1,3 +1,4 @@
+
 // // import { NgModule } from "@angular/core"; // DESNECESSÁRIO. Usaria este IMPORT se este arquivo referenciasse à um Module (@NgModule). Mas como é uma CONSTANTE, não preciso gravar ela (constante) como um Componente, pq na verdade não é um Componente. Um Component é composto de 3 arquivos (HTML, CSS, TS. O TS um JavaScript com mais funcionalidades). // MAS MESMO SENDO UM arquivo é não um Component (composto por 3 arqs) e nem um Module, TENHO QUE COLOCAR A EXTESÃO .ts.  // Um Component eu uso "@NgComponent" e um Module eu uso "@NgModule".
 // import { NgModule } from "@angular/core";
 // import { Routes } from "@angular/router";
@@ -28,3 +29,7 @@
 //       * o roteador aplicaria o redirecionamento mesmo durante a navegação
 //       * para o destino do redirecionamento, criando um loop infinito.
 // */
+import { Routes } from '@angular/router';
+
+export const routes: Routes = [];
+

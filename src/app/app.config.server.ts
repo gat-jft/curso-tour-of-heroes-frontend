@@ -18,6 +18,15 @@ const serverConfig: ApplicationConfig = {
         //  em uma cintilação visível da IU. Essa renderização pode impactar negativamente
         //  Principais elementos vitais da Web como LCP e causar uma mudança de layout. Habilitar a hidratação permite que o DOM existente seja reutilizado e previne uma oscilação.
     ],
+
+import { mergeApplicationConfig, ApplicationConfig } from '@angular/core';
+import { provideServerRendering } from '@angular/platform-server';
+import { appConfig } from './app.config';
+
+const serverConfig: ApplicationConfig = {
+  providers: [
+    provideServerRendering()
+  ]
 };
 
 export const config = mergeApplicationConfig(appConfig, serverConfig);
