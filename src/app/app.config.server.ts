@@ -1,6 +1,8 @@
 import { mergeApplicationConfig, ApplicationConfig } from '@angular/core';
 import { provideServerRendering } from '@angular/platform-server';
 import { appConfig } from './app.config';
+import { FormsModule } from '@angular/forms';
+import { Pipe } from 'stream';
 
 const serverConfig: ApplicationConfig = {
   providers: [
