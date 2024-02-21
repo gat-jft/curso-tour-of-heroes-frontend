@@ -1,10 +1,164 @@
-<h2>{{ hero.name | uppercase }} Details</h2>
-<div><span>id: </span> {{ hero.id }}</div>
-<div><span>name: </span> {{ hero.name }}</div>
+<h2>My Heroes</h2>
 
-<div>
-  <label for="name">Hero name:</label>
-  <input id="name" [(ngModel)]="hero.name"
-   placeholder="name" type="text"/>
+<ul class="heroes">
+  <li
+    *ngFor="let hero of heroes"
+    style="color: brown"
+    [class.selected]="selectedHero === hero"
+    (click)="onSelect(hero)"
+  >
+    <span style="color: blue">{{ hero.id | currency }}</span> {{ hero.name }}
+  </li>
+</ul>
+
+<div *ngIf="selectedHero">
+  <h2>{{ selectedHero.name | uppercase }} Details</h2>
+  <div><span style="font-size: xx-large">id: </span>{{ selectedHero.id }}</div>
+  <div><span>name: </span>{{ selectedHero.name }}</div>
+
+  <div>
+    <label for="name">Hero name: </label>
+    <input
+      id="name"
+      [(ngModel)]="selectedHero.name"
+      placeholder="name"
+      type="text"
+    />
+  </div>
 </div>
 
+<!--
+  RECAPITULANDO:
+  1- | upppercase OU | currency, são pipelines que eu coloco para formatar um elemento.
+         No caso é upppercase é MAIÚSCULAS. currency é formato MOEDA.
+
+         | upppercase OU | currency, são Pipes, e são do pacote CommonModule do 'angular/commom'.
+         Tenho que importar no arquivo .ts, senão não funciona.
+
+  2- (click)="onSelect(hero)"
+        (click)=”” é um EVENT BINDING. Ou seja, um vinculação por um evento, no caso, um click.
+        (click)="" é para quando eu clicar num objeto, ele executar o método que está nos "".
+        Então, sempre (click)="" precisa de uma método.
+
+  3- [(ngModel)]="selectedHero.name"
+     [(ngModel)] é para eu vincular um Modelo (Model) ao objeto.
+         Então, quando eu clicar no input, o Modelo será alterado.
+
+         [(ngModel)]="objeto.atributo" é do ANGULAR.FORMS.
+             Portanto, tenho que importar o FormsModule no arquivo .ts (TypeScript).
+
+  4- <span style="font-size: xx-large">id:
+           o id tera uma fonte tamanho grande.
+
+
+  5- <ul class="heroes">
+     // Adicionei uma classe chamada "heroes".
+     // Nela eu coloquei pra que o cursor seja mostrado como
+     // um PONTEIRO: foi no arquivo heroes.component.scss.
+
+  6- No <li>, eu coloquei o [class.selected]
+       Então, ele adiciona a Classe "selected", quando o hero
+       FOR IGUAL ao selectedHero.
+
+  7- Estilando um HERÓI que a gente selecionou:
+        [class.selected]="hero === selectedHero"
+
+        O ANGULAR tem essa forma que a gente coloca entre COLCHETES,
+        que é o class.
+        Então, eu tô dizendo:
+        Eu quero adicionar uma classe chamada "selected".
+
+        Depois eu coloco um IGUAL.
+        Dentro dos "" eu coloco uma condição BOOLEANA: vai me retornar V ou F.
+
+        Neste caso, quando eu modificar um HeroiSelecionado, o
+        Herói muda automaticamente. Mas, só na tela claro!. Não no back-end.
+
+        Note que o IGUAL tem  3 =, pra gente fazer uma verificação,
+        pra ver se eles são realmente iguais.
+
+  8- placeholder="name"
+       placeholder="" é o TEXTO que aparacerá na caixinha para o usuário preencher no <input>.
+       No caso, ele vai dar um NOME para o campo.
+
+  9- <h1>, <h2> ... são tamanhos de fontes de texto.
+
+  10- <ul> é para uma lista ordenada: de 1 a n, por exemplo.
+      <li> é para cada ITEM DESTA LISTA (cada 5linha desta lista).
+
+  11- <div> é uma divisão do texto.
+
+  12- <labe> é o rótulo de um campo a ser digitado pelo usuário.
+
+  13- <span> é para formatar um texto.
+             Para formatar, não é necessário. Basta colocar style="estilo".
+             Ele é melhor para separar um pedaço do TEXTO.
+
+  14- {{comando qualquer do ANGULAR}}
+
+  15- Diferença de eu usar [] ou {{}}
+        Quando eu uso a sintaxe dos colchetes ou das chaves duplas?
+
+        O property binding é uma forma de associar propriedades entre o template
+        (arquivo html) e o component (arquivo typescript). Essa associação pode ser feita
+         utilizando a sintaxe dos colchetes ou das chaves duplas (interpolação).
+
+         Você pode utilizar as duas formas, pois ambas servem para mostrar na tela algo
+         que está na classe, por isso se chama vinculação unidirecional, no sentido do
+         typescript para o html.
+
+         component => {{valor}} => template
+         component => [propriedade] = "valor" => template
+
+         A diferença é que, com a interpolação, você já passa o valor direto no template.
+         E utilizando os colchetes, você associa o valor a uma propriedade de uma tag html.,
+         Além disso, na interpolação você também pode passar expressões e até chamadas de
+         métodos da classe.
+
+             EXEMPLO, O COMPONENTE 'app.component.ts':
+             Fonte: https://cursos.alura.com.br/forum/topico-property-binding-x-interpolacao-247435
+
+                  import { Component } from '@angular/core';
+
+                  @Component({
+                    selector: 'my-app',
+                    templateUrl: './app.component.html',
+                    styleUrls: ['./app.component.css'],
+                  })
+                  export class AppComponent {
+                    name = 'Barbara';
+
+                    cumprimentar(): string {
+                      return 'Olá, tudo bem?';
+                    }
+                  }
+
+             E O HTML, o 'app.component.html'
+
+                   <h1>Property binding</h1>
+
+                   <p>Com a interpolação posso mostrar variáveis: Olá {{ name }} :)</p>
+
+                   <p>Expressões: Angular {{ 10 + 4 }}</p>
+
+                   <p>E até chamadas de métodos da classe: {{ cumprimentar() }}</p>
+
+                   <input type="text" [value]="name" />
+
+              RESULTA em:
+                    Property binding
+                    Com a interpolação posso mostrar variáveis: Olá Barbara :)
+
+                    Expressões: Angular 14
+
+                    E até chamadas de métodos da classe: Olá, tudo bem?
+
+                    Barbara
+-->
+
+<!--
+  <ul class="heros"
+
+  Eu estou dizendo que:
+  O <ul> é uma classe Heroes.
+-->
