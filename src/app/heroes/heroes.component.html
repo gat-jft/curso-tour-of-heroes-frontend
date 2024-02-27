@@ -11,21 +11,16 @@
   </li>
 </ul>
 
-<div *ngIf="selectedHero">
-  <h2>{{ selectedHero.name | uppercase }} Details</h2>
-  <div><span style="font-size: xx-large">id: </span>{{ selectedHero.id }}</div>
-  <div><span>name: </span>{{ selectedHero.name }}</div>
+<app-hero-detail [hero]="selectedHero"></app-hero-detail>
 
-  <div>
-    <label for="name">Hero name: </label>
-    <input
-      id="name"
-      [(ngModel)]="selectedHero.name"
-      placeholder="name"
-      type="text"
-    />
-  </div>
-</div>
+<!--
+    A responsabilidade deste arquivo agora é:
+    - Mostrar listagem, e,
+    - Ao selecionar alguém, mandar pro componente de HeroDetail (HeroDetailComponent).
+
+    E agora, ele criaram uma relação de pai e filho (parent-child):
+    Pai, que é o componente Heroes, ele controla o componente filho (Heroes-Detail).
+-->
 
 <!--
   RECAPITULANDO:
@@ -41,11 +36,26 @@
         Então, sempre (click)="" precisa de uma método.
 
   3- [(ngModel)]="selectedHero.name"
-     [(ngModel)] é para eu vincular um Modelo (Model) ao objeto.
-         Então, quando eu clicar no input, o Modelo será alterado.
+     [(ngModel)] é para eu vincular um Modelo (Model) ao HTML.
+         Então, quando eu clicar no input, o Modelo (campo name do selectedHero) será alterado.
+
+         [(ngModel)]="selectedHero.name"
+         // "selectedHero.name" é o valor (dado), em se dará o
+         //                     <input> (edição, entrada de dados pelo usuário).
 
          [(ngModel)]="objeto.atributo" é do ANGULAR.FORMS.
              Portanto, tenho que importar o FormsModule no arquivo .ts (TypeScript).
+
+     *ngFor="let hero of heroes" é uma DIRETIVA (Comando) DO Angular, para repetição.
+                                 Por isso é uma Diretiva ESTRUTURAL.
+                                 "let" ANTES de qq variável (no caso hero) é para criar uma
+                                       variável que se pode modificar.
+                                       Ao contrário do "const".
+                                 "hero" é uma das variáveis do meu ARRAY (variável "heroes").
+
+     <div *ngIf="selectedHero">
+          *ngIf="selectedHero" é um DIRETIVA do Angular, para fazer um IF.
+          Então, se existir um selectedHero, executa o bloco. Senão, não executa o bloco.
 
   4- <span style="font-size: xx-large">id:
            o id tera uma fonte tamanho grande.
@@ -53,6 +63,13 @@
 
   5- <ul class="heroes">
      // Adicionei uma classe chamada "heroes".
+     // Tudo que tem "class", estou criando uma classe:
+     //               [class.selected]="valor" // quer dizer que é para o Angular criar
+     //               uma Classe, dentro da classe "heroes", chamada "selected".
+     //               A diferença aqui é que usou um BINDING, que são as chaves para
+     //                           uma instrução / comando HTML.
+     //                           Se fosse as chaves duplas "{{}}", seria para um colocar
+     //                           um comando do Angular: mas é BINDING da mesma forma.
      // Nela eu coloquei pra que o cursor seja mostrado como
      // um PONTEIRO: foi no arquivo heroes.component.scss.
 
@@ -154,11 +171,30 @@
                     E até chamadas de métodos da classe: Olá, tudo bem?
 
                     Barbara
--->
 
-<!--
-  <ul class="heros"
 
-  Eu estou dizendo que:
-  O <ul> é uma classe Heroes.
+  16- <ul class="heros">
+
+         Eu estou dizendo que:
+         O <ul> é uma classe Heroes.
+
+
+         O atributo "class" (class="valor") é um atributo GLOBAL.
+         Quando eu crio uma class, eu crio um estilo nomeado com aquele nome
+         (o valor do class).
+
+         Aí qualquer tag que tiver o atributo nela class, terá o mesmo estilo
+         CSS.
+         Veja o vídeo:
+         https://www.youtube.com/watch?v=2y6eiSbVJgY
+
+  17- [class.selected]="selectedHero === hero"
+         Ele criou uma classe (class), deu o nome dela de "selected".
+
+         Usando para isso um EVENT BINDING (chaves).
+
+         Tanto que no arquivo css (heroes.component.scss), tem a classe "heroes",
+         e a classe de li (a classe "selected"), com um estilo para esta
+         classe "selected".
+
 -->
