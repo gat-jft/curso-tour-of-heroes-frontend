@@ -142,13 +142,20 @@ import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { HeroesComponent } from './heroes/heroes.component';
 import { FormsModule } from '@angular/forms';
+import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
-  imports: [CommonModule, RouterOutlet, HeroesComponent, FormsModule],
+  imports: [
+    CommonModule,
+    RouterOutlet,
+    HeroesComponent,
+    FormsModule,
+    HeroDetailComponent,
+  ],
 })
 export class AppComponent {
   title = 'Tour of Heroes';
