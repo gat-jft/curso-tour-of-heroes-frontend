@@ -4,13 +4,14 @@ import { CommonModule } from '@angular/common';
 import { HEROES } from '../mock-heroes';
 import { FormsModule } from '@angular/forms';
 import { HeroDetailComponent } from '../hero-detail/hero-detail.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 @Component({
   selector: 'app-heroes',
   standalone: true,
   templateUrl: './heroes.component.html',
   styleUrl: './heroes.component.scss',
-  imports: [CommonModule, FormsModule, HeroDetailComponent],
+  imports: [CommonModule, FormsModule, HeroDetailComponent, MatToolbarModule],
 })
 export class HeroesComponent {
   heroes = HEROES;
