@@ -4,6 +4,7 @@ import { RouterOutlet } from '@angular/router';
 import { HeroesComponent } from './heroes/heroes.component';
 import { FormsModule } from '@angular/forms';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 @Component({
   selector: 'app-root',
@@ -16,6 +17,7 @@ import { HeroDetailComponent } from './hero-detail/hero-detail.component';
     HeroesComponent,
     FormsModule,
     HeroDetailComponent,
+    MatToolbarModule,
   ],
 })
 export class AppComponent {
