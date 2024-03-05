@@ -27,7 +27,7 @@ export class HeroesComponent implements OnInit {
   }
 
   getHeroes(): void {
-    this.heroes = this.heroService.getHeroes();
+    this.heroService.getHeroes().subscribe((heroes) => (this.heroes = heroes));
   }
 
   // Método pra pegar um Hero (herói) da TELA do template, e SETAR o nosso selectedHero.
@@ -35,3 +35,10 @@ export class HeroesComponent implements OnInit {
     this.selectedHero = hero;
   }
 }
+
+// Na nossa aplicação, por enquanto, os dados estão mocados.
+// O que é isso (dados mocados)?
+//
+// Sim, os dados mocados são dados fictícios ou simulados que são utilizados durante
+// o desenvolvimento de uma aplicação quando a API real ainda não está pronta.
+// É uma prática comum para testar o front-end antes de integrá-lo com o back-end.
