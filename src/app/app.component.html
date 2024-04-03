@@ -399,12 +399,48 @@
 
 <mat-toolbar color="primary">
     <span>{{ title }}</span>
+    <span fxFlex></span>
+    <!-- FxFlex é uma DIRETIVA do pacote AngularFexLayout, pra eu poder usar o FlexLayout, sem precisar de uma Classe CSS. Assim, ele tem o mesmo efeito da Classe que eu copiei do AngularMaterial.-->
+
+    <button
+        class="example-icon"
+        mat-icon-button
+        aria-label="Heroes list"
+        matTooltip="Heroes"
+        routerLink="/heroes"
+    >
+        <mat-icon>sports_martial_arts</mat-icon>
+        <!-- ÍCONE de um lutador de artes marciais. 
+             - O atributo aria-label (aria-label="Texto") serve para os deficientes visuais passarem o mouse 
+               em cima do ÍCONE DO LUTADOR, aí fala este código. 
+             - O atributo routerLink="rota", serve pra quando eu clicar no link, ir para a rota dos "".
+             - matTooltip serve para DICAS (tips). É pra quando passar o mouse em cima do ÍCONE, e ele mostra a dica "HeroesT".
+
+            -->
+    </button>
 </mat-toolbar>
 
 <div class="content">
-    <app-heroes></app-heroes>
+    <router-outlet></router-outlet>
+    <!--  <app-heroes></app-heroes> -->
     <app-messages></app-messages>
 </div>
-<!--
-<app-hero-detail></app-hero-detail>
+
+<!-- NÃO tem mais o <app-heroes></app-heroes> e o <app-heroes></app-heroes>.
+     //
+     // Agora pra aparecer os Herois (<app-heroes>), eu tenho que colocar a rota (/heroes) depois do "www.localhost:4200", na URL.
+     //
+     // O <app-heroes></app-heroes> foi substituído pela constante routes. Ela fica no arquivo app.routes.ts.
+     // 
+     // const routes: Routes = [{ path: "heroes", component: HeroesComponent }];
+     // Esse tipo Routes, ele faz parte de um MÓDULO do Angular, chamado @angular/router.
+     // Como ele funciona? Dentro dele a gente vai especificar algumas ROTAS.
+     // Ele é um ARRAY, e tem alguns atributos:
+     //     path (caminho), e o componente inicial.
+     //
+     // Então, quando eu tiver por exemplo no "www.localhost:4200" ele vai colocar o "heroes" na URL,
+     // ficando assim a URL: "www.localhost:4200/heroes"
+     //
+     // Daí, caso tenha na minha URL o "/heroes", o vou falar que o component "heroes" seja exibido
+     // na nossa página.
 -->

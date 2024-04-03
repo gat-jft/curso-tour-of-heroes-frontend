@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 
+// O injectable indica que esta Classe MessageService vai ser um Service. E ele é único (Singleton) na nossa aplicação.   // E ele é disponibilizado no início (root) da nossa Aplicação.
 @Injectable({
     providedIn: "root",
 })
