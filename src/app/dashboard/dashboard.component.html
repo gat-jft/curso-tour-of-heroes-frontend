@@ -1,0 +1,34 @@
+<h2>Dashboard</h2>
+<!-- Nome da tela = "Dashboard"-->
+
+<div
+    fxLayout="row"
+    fxLayout.xs="column"
+    fxLayoutGap="12px"
+    fxLayoutAlign="space-between"
+>
+    <!-- Vamos adicionar um Component do MATERIAL: o card -->
+    <mat-card *ngFor="let hero of heroes">
+        <mat-card-title>{{ hero.name }}</mat-card-title>
+    </mat-card>
+</div>
+
+<!--     
+    Pesquisar RESPONSIVA no Google, pq no celular não estava ficando responsivo (tava feia a tela).
+    Resposta:
+    Layout responsivo – Seu conteúdo ajustado em qualquer tela. 
+        Assim, se estiver no celular, a tela será ajustada pra ele. Se tiver no pc, a tela também será ajustada pra ele. Se eu redimensiono o navegador, os elementos se ajustam.
+      
+    fxLayoutAlign="space-between". Além de dar um espaço entre os elementos automaticamente, ele torna a página (tela) num LAYOUT RESPONSIVO.    
+
+    fxLayout.xs="column" // Então, se for no celular, eu quero que mostre os Heróis em COLUNA (um embaixo do outro), e não em row.
+
+    fxLayout="row"  // Diretiva do FlexLayout, para visão da tela, mostrando os elementos em LINHA (row). Para a aplicação estiver rodando no pc (WEB, que é tela maior).
+
+    .xs // O FlexLayout traz formas da gente mudar o LAYOUT, dependendo de como tá sendo exibido. A extensão .xs (extra small), usada no FlexLayout.xs é para quando for exibir também no celular, os HEROIS do <mat-card-title> aparecerem em coluna, e assim, ficar a tela responsiva. // Existem outras extensões do FlexLayout para usar no celular ou no tablet e outros dispositivos, como a .sm (small), a .md (medium), a .lg (large), a extra large etc.
+
+     Gap é a distância entre um card e outro.  
+     
+     Pra tudo que a gente for usar do FlexLayout, a gente pode ir na página do flex-layout, clicar em WIKI, ir em PAGES e pesquisar os LAYOUTs, ref a como ficarão os elementos na TELA (ALINHAMENTOS, horizontal, vertical, direita, esquerda. No celular, no pc, no tablet ...).
+     https://github.com/angular/flex-layout
+-->
