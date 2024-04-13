@@ -1,4 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body { height: 100%; }
+
+// Dentro do nosso body, eu vou colocar também a propriedade background-color: #fafafa // É pra dar um contraste um pouco melhor no corpo (body) da tela.
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
+ background-color: #f3f3f3;
+}
