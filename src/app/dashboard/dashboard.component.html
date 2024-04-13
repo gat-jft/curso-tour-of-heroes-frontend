@@ -1,4 +1,7 @@
+
 <h1>Dashboard</h1>
+
+<h2>Dashboard</h2>
 <!-- Nome da tela = "Dashboard"-->
 
 <div
@@ -37,6 +40,11 @@
         Daí, eu tenho que mudar a nossa classe de estilos do nosso Component
         (o arquivo dashboard.component.scss) e coloca uma classe de estilo (vários estilos numa classe chamada ".ponter{ estilos.}").
 -->
+
+    <mat-card *ngFor="let hero of heroes">
+        <mat-card-title>{{ hero.name }}</mat-card-title>
+    </mat-card>
+</div>
 
 <!--     
     Pesquisar RESPONSIVA no Google, pq no celular não estava ficando responsivo (tava feia a tela).

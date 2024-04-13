@@ -160,6 +160,9 @@ import { MatTooltipModule } from "@angular/material/tooltip"; // Para DICAS (tip
 import { routes } from "./app.routes";
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { FlexLayoutModule } from "@angular/flex-layout"; // Para disponibilizar o Flex Layout pra mim, que alinha os elementos de maneira elegante e poderosa pra gente.
+import { FlexLayoutServerModule } from "@angular/flex-layout/server"; // Preciso também deste pacote para disponibilizar o FlexLayout pra mim. Tenho que colocar também no atributo "imports" deste Component.
+import { DashboardComponent } from "./dashboard/dashboard.component";
+
 // import { AppRoutingModule } from "./app-routing.module";
 //    ESSE IMPORT é NÃO aplicável, já que no ANGULAR 17 não tem mais módulos.
 //    Assim, é possível marcar componentes, diretivas e pipes como standalone: true. As classes Angular marcadas como
@@ -183,6 +186,8 @@ import { FlexLayoutModule } from "@angular/flex-layout"; // Para disponibilizar 
         RouterModule,
         FlexLayoutModule,
         MatTooltipModule,
+        FlexLayoutServerModule,
+        DashboardComponent,
     ],
 })
 export class AppComponent {
