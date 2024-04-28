@@ -1,20 +1,68 @@
-import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { Hero } from '../hero.model';
+import { CommonModule, Location } from "@angular/common";
+import { Component, OnInit } from "@angular/core";
+import { FormsModule } from "@angular/forms";
+import { Hero } from "../hero.model";
+import { HeroService } from "../hero.service";
+import { ActivatedRoute } from "@angular/router";
+import { MatExpansionModule } from "@angular/material/expansion";
+import { MatButtonModule } from "@angular/material/button";
 
 @Component({
-  selector: 'app-hero-detail',
-  standalone: true,
-  imports: [CommonModule, FormsModule],
-  templateUrl: './hero-detail.component.html',
-  styleUrls: ['./hero-detail.component.scss'],
+    selector: "app-hero-detail",
+    standalone: true,
+    imports: [
+        CommonModule,
+        FormsModule,
+        CommonModule,
+        MatButtonModule,
+        MatExpansionModule,
+    ],
+    templateUrl: "./hero-detail.component.html",
+    styleUrls: ["./hero-detail.component.scss"],
 })
-export class HeroDetailComponent {
-  @Input() hero?: Hero; // Pra que o HeroDetail (este componente) receba um valor de FORA DELE, a gente tem que colocar um decorator chamado @Input, na propriedade dele. Assim, outros componentes podem SETAR valores prá ela. Assim ela fica como PÚBLICA.
-}
+export class HeroDetailComponent implements OnInit {
+    hero!: Hero;
+    // Se eu não colocar o "!" depois da variável, vou receber uma mensagem de ERRO. É o ANGULAR avisando que eu tenho que começar (inicializar) qualquer variável que a gente vai usar.
+    // Opções pra eu colocar: "hero!", "hero: | undefined" ou "hero?". // Estou dizendo que a gente vai receber um valor prá variável, mas que a gente não tem esse valor agora pra podeer colocar aquir.
 
-/*
+    constructor(
+        private heroService: HeroService,
+        private location: Location,
+        private route: ActivatedRoute
+    ) {}
+    // O HeroService eu quero ele prá criar um método prá buscar o nosso Herói.
+    // Eu quero o Location o Angular Common. É pra gente poder interagir com o HISTÓRICO DO BROWSER nosso. // O ActivetedRoute, ele segura as informações, sobre o momento que a ROTA estiver.
+
+    ngOnInit(): void {
+        this.getHero();
+    }
+
+    getHero(): void {
+        const id = Number(this.route.snapshot.paramMap.get("id")); // Qualquer parâmetro que vai ser colocado na URL, este parâmetro é string. Só que o nosso getHero(), o parâmetro a gente tá esperando um inteiro. Então "Number()", é para fazer a conversão pra gente.
+        // snapshot: Estou tirando uma foto do momento.
+
+        //console.log(id);
+        //  O console.log, ele permite que a gente mostre no CONSOLE DO BROWSER esta informação (no caso o id).
+        //  Daí, eu abro o CONSOLE DO NAVEGADOR (F12 ou DeveloperTools), e clico em CONSOLE. Também funciona no VS (no CONSOLE do TERMINAL)T.
+
+        this.heroService.getHero(id).subscribe((hero) => (this.hero = hero)); // Preciso do "subscribe()" toda vez que eu usar um OBSERVABLE (valor que não está mocado, ie no nosso projeto, já que ele pode vir de uma API etc).  // o método "subscribe()" ele já vem com um DELEGATE (método que eu posso usar como uma FUNCTIO também).  // Uma FUNCTION (método) eu coloco só "(dado entrada) => (retorno))" O que que o OBSERVABLE (subscribe) vai retornar pra nós?    Ele vai retornar um hero, e aí, o this.hero vai RECEBER o hero que vai vir do nosso Service.
+    }
+
+    goBack(): void {
+        this.location.back();
+        // Agora eu estou usando o Location (Classe). // Ele está pegando o MOMENTO que eu estava no caso, e voltando nele.
+        //   back() do Location é o método prá ele VOLTAR (<--), lá no nosso BROWSER.
+    }
+
+    /*
+    Na Aula 19, ele já não vai mais receber o Input. Então foi retirado a linha:
+      @Input() hero?: Hero; // Pra que o HeroDetail (este componente) receba um valor de FORA DELE, a gente tem que colocar um decorator chamado @Input, na propriedade dele. Assim, outros componentes podem SETAR (colocar) valores prá ela.
+      Assim ela fica como PÚBLICA.
+
+
+     */
+
+    /*
     - Diretivas em Angular;
     - Binding de dados em Angular;
     - Decoradores ou marcadores (Nomes começando com o @) que eu
@@ -28,7 +76,7 @@ export class HeroDetailComponent {
     de atualizar a página inteira.
 */
 
-/*
+    /*
     Como fazer o binding de dados em Angular: guia completo para iniciantes
     Por Gaspar Barancelli Junior em 01 de março de 2023.
     Fonte: https://www.gasparbarancelli.com/post/como-fazer-o-binding-de-dados-em-angular-guia-completo-para-iniciantes#:~:text=O%20binding%20de%20dados%20%C3%A9,web%20mais%20eficiente%20e%20flex%C3%ADvel.
@@ -99,7 +147,7 @@ export class HeroDetailComponent {
     flexível de aplicativos da web em Angular.
 */
 
-/*
+    /*
     Diretivas no Angular
     Fonte: https://vidafullstack.com.br/angular/o-que-sao-diretivas-angular/
 
@@ -209,7 +257,7 @@ export class HeroDetailComponent {
     classes dinamicamente.
 */
 
-/*
+    /*
      @Input
      Decorador que marca um campo de classe como uma propriedade de entrada
      e fornece metadados de configuração. A propriedade input está vinculada
@@ -217,3 +265,4 @@ export class HeroDetailComponent {
      o Angular atualiza automaticamente a propriedade data com o valor da
      propriedade DOM (elemento xml por exemplo).
 */
+}

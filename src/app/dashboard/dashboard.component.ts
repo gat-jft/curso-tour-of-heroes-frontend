@@ -30,11 +30,12 @@ import { Hero } from "../hero.model";
 import { MatCardModule } from "@angular/material/card";
 import { CommonModule } from "@angular/common";
 import { FlexLayoutModule } from "@angular/flex-layout";
+import { RouterModule } from "@angular/router";
 
 @Component({
     selector: "app-dashboard",
     standalone: true,
-    imports: [MatCardModule, CommonModule, FlexLayoutModule],
+    imports: [MatCardModule, CommonModule, FlexLayoutModule, RouterModule],
     templateUrl: "./dashboard.component.html",
     styleUrl: "./dashboard.component.scss",
 })
@@ -55,8 +56,11 @@ export class DashboardComponent implements OnInit {
         // "=>" é a função que eu quero que seja executada.  // slice = fatiar. // Fatiar um ARRRAY. // Fatiar da posição 1 até 5 // Mas, o slice() não pega o último elemento, que no caso seria o 5º. Ele vai pegar os elementos da posição 1 a 4.
         // Então ele não mostra a posição 0 e a 5 do ARRAY.
 
+
     getHeroes(): void {
-        // O getHeroes() do nosso Service é um OBSERVABLE, e para que ele possa ser executado, eu vou fazer um subscribe(). E este subscribe() vai retornaar pra mim uma LISTA<de Heroes): a varíavel que eu coloquei no () chamada (heroes). "=>" é a função que eu quero que seja executada.  // slice = fatiar. // Fatiar um ARRRAY. // Fatiar da posição 1 até 5 // Mas, o slice() não pega o último elemento, que no caso seria o 5º. Ele vai pegar os elementos da posição 1 a 4. // Então ele não mostra a posição 0 e a 5 do ARRAY.
+        // O getHeroes() do nosso Service é um OBSERVABLE, e para que ele possa ser executado, eu vou fazer um subscribe(). E este subscribe() vai retornaar pra mim uma LISTA<de Heroes): a varíavel que eu coloquei no () chamada (heroes).
+        // "=>" é a função que eu quero que seja executada.  // slice = fatiar. // Fatiar um ARRRAY. // Fatiar da posição 1 até 5 // Mas, o slice() não pega o último elemento, que no caso seria o 5º. Ele vai pegar os elementos da posição 1 a 4.
+        // Então ele não mostra a posição 0 e a 5 do ARRAY.
         this.heroService
             .getHeroes()
             .subscribe((heroes) => (this.heroes = heroes.slice(1, 5)));

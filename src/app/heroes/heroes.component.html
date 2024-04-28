@@ -1,17 +1,11 @@
-<h2>My Heroes</h2>
+<h1>My Heroes</h1>
 
 <ul class="heroes">
-  <li
-    *ngFor="let hero of heroes"
-    style="color: brown"
-    [class.selected]="selectedHero === hero"
-    (click)="onSelect(hero)"
-  >
-    <span style="color: blue">{{ hero.id | currency }}</span> {{ hero.name }}
-  </li>
+    <li *ngFor="let hero of heroes" routerLink="/heroes/{{ hero.id }}">
+        <span>{{ hero.id | currency }}</span>
+        {{ hero.name }}
+    </li>
 </ul>
-
-<app-hero-detail [hero]="selectedHero"></app-hero-detail>
 
 <!--
     A responsabilidade deste arquivo agora é:
@@ -20,6 +14,18 @@
 
     E agora, ele criaram uma relação de pai e filho (parent-child):
     Pai, que é o componente Heroes, ele controla o componente filho (Heroes-Detail).
+
+    routerLink="/heroes/{{ hero.id }}"
+       Se eu clicar em cima de um item (HERÓI) da minha LISTA, ele vai mudar para o HERO.id.
+
+    [class.selected]="selectedHero === hero" // FOI REMOVIDO NA AULA 19, substituído pelo comando "routerLink=""".  // Não faz mais sentido, pq ele não seleciona o hero mais pelo método que eu criei onSelected(), mas sim por uma ROTA através do "routerLink="rota"").     // Ctrl + Shift + K, apaga uma linha.
+
+
+    (click)="onSelect(hero)" // Removido na Aula 19. Não faz mais sentido. // Tirar o MÉTODO onSelect() do Component também.
+
+
+    <app-hero-detail [hero]="selectedHero"></app-hero-detail> // Não precisa mais na Aula 19.
+
 -->
 
 <!--

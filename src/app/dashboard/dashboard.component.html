@@ -2,6 +2,7 @@
 <h1>Dashboard</h1>
 
 <h2>Dashboard</h2>
+<h1>Dashboard</h1>
 <!-- Nome da tela = "Dashboard"-->
 
 <div
@@ -42,9 +43,25 @@
 -->
 
     <mat-card *ngFor="let hero of heroes">
+
+        routerLink="/heroes/{{ hero.id }}"
+    >
         <mat-card-title>{{ hero.name }}</mat-card-title>
     </mat-card>
 </div>
+<!-- 
+    routerLink="/heroes/{{ hero.id }}" // Pra quando ao clicar em cima de alguma HERÓI no DASHBOARD, ele 
+       MUDE A ROTA para a ROTA do Detalhe do Herói.
+       
+       Para eu usar o routerLine="rota", eu preciso importar o RouterModule.
+       O routerLink="" ele serve pra gente poder usar ele dentro do nosso template (arquivo html), pq adicionei o RouterModule, dentro do .compoonenmt.ts.
+       {{}} é para eu fazer uma INTERPOLAÇÃO: pegar uma entrada de dados do usuário.
+       Tive que colocar o import do RouterModule, no .component.ts, para usar o routerLink="/heroes/{{ hero.id }}"
+    
+    class="pointer" pra ele não mostra a setinha como PONTEIRO DO MOUSE.
+        Daí, eu tenho que mudar a nossa classe de estilos do nosso Component
+        (o arquivo dashboard.component.scss) e coloca uma classe de estilo (vários estilos numa classe chamada ".ponter{ estilos.}").
+-->
 
 <!--     
     Pesquisar RESPONSIVA no Google, pq no celular não estava ficando responsivo (tava feia a tela).
