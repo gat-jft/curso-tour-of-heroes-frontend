@@ -36,7 +36,19 @@ export class HeroService {
 
         return heroes;
     }
+
+    getHero(id: number): Observable<Hero> {
+        const hero = HEROES.find((hero) => hero.id === id)!; // O JavaScript tem o método find(): Dentro dele eu tenho que colocar um método (predicate), e este método vai percorrer cada item da LISTA, e aí, quando uma condição VERDADEIRA for encontrada, ele retorna pra nós. Aí eu vou colocar uma ARROW FUNCTION **  // Condição: Se o hero.id, do hero, FOR IGUAL ao id passado neste getHero().    // A "!", é que pode ser que é passado um id que não existe
+        this.messageService.add(`HeroService: fetched hero id=${id}`); // Coloquei as CRASES, porque a gente vai adicionar um template (modelo) literal ("No HeroService: encontrado(fetched) o id ...") do JavaScript.  // Então, se encontrou ou não o hero, vamos ADICIONAR (add) uma mensagem.
+
+        return of(hero); // retorno o hero que a gente encontrou. // "of" é porque é de um OBSERVABLE.
+    }
 }
+
+// ARROW FUNCTION:
+//   Em termos simples, uma arrow function é uma forma concisa de escrever uma função em JavaScript. Ela otimiza a escrita do seu código, deixando-o mais limpo, enxuto e aumentando a legibilidade.
+//   arrow (inglês) é flecha. // É uma flecha (seta) "=>" da função. // Usamos para o retorno da função. // A função é escrita da seguinte forma, por exemplo: (x, y ...) => x . b
+//   https://www.hashtagtreinamentos.com/arrow-function-em-javascript?gad_source=1&gclid=CjwKCAjw57exBhAsEiwAaIxaZu-dlDGedMn8_2l0rDfhP7PhHNYWlgnDSbu2VPcWun2-D60DjXwHixoCWFcQAvD_BwE
 
 // "subscribe" aqui, "Observable<T>" na classe de Service.  // É como o "async" e "await" no BACK-END. "async" no método do Controller, "await" antes da chamada do Método no Repository ou Service.
 //
