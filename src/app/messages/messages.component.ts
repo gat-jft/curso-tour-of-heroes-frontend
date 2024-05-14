@@ -3,12 +3,12 @@ import { MessageService } from "../message.service";
 import { CommonModule } from "@angular/common";
 import { MatButtonModule } from "@angular/material/button";
 import { MatExpansionModule } from "@angular/material/expansion";
-import { FormsModule } from "@angular/forms";
+import { MatListModule } from "@angular/material/list";
 
 @Component({
     selector: "app-messages",
     standalone: true,
-    imports: [CommonModule, MatButtonModule, MatExpansionModule],
+    imports: [CommonModule, MatButtonModule, MatExpansionModule, MatListModule],
     templateUrl: "./messages.component.html",
     styleUrl: "./messages.component.scss",
 })

@@ -1,20 +1,19 @@
-<!-- *ngIf: pra que se mostre essa parte (DIV), caso tenha alguma mensagem.
+<div *ngIf="messagesService.getMessages().length">
+    <!-- *ngIf: pra que se mostre essa parte (DIV), caso tenha alguma mensagem.
       getMessages() retorna um ARRAY.
       length() retorna um number, ref o tamanho do array.
                Se ele tiver 0, o *ngIf interpreta como FALSE. E não mostra essa DIV.
                Se ele retornar 1 ou mais de 1, *ngIf interpreta como TRUE. E mostra essa DIV.
--->
-<div *ngIf="messagesService.getMessages().length">
-    <!-- Se ele não tiver nenhuma mensagem, esse trecho abaixo não vai ser exibido-->
+     Se ele não tiver nenhuma mensagem, daqui pra baixo, trecho abaixo não vai ser exibido. -->
     <h2>Messages</h2>
-    <!-- texto "Messages"-->
+    <!-- texto na tela "Messages"-->
 
-    <!-- O ACORDEON só vai acontecer, se tiver mensagens.
+    <mat-accordion *ngIf="messagesService.getMessages().length">
+        <!-- O ACORDEON só vai acontecer, se tiver mensagens.
            Um dos componentes visuais mais utilizados nas páginas web atuais é o chamado Accordion. 
            Trata-se de uma estrutura formada por guias/seções que podem ser expandidas e fechadas 
            ao se clicar no seu título.    
     -->
-    <mat-accordion *ngIf="messagesService.getMessages().length">
         <mat-expansion-panel expanded="true">
             <mat-expansion-panel-header>
                 <mat-panel-title> Messages </mat-panel-title>
@@ -24,12 +23,13 @@
             </mat-expansion-panel-header>
 
             <p>
-                <!-- O botão ficará dentro de um PARÁGRAFO (<p></p>), para o texto não ficar muito colado. -->
+                <!-- parágrafo -->
                 <button
                     color="warn"
                     mat-raised-button
                     (click)="messagesService.clear()"
                 >
+                    <!-- O botão ficará dentro de um PARÁGRAFO (<p></p>), para o texto não ficar muito colado. -->
                     Clear messages
                 </button>
                 <!-- botão "Clear messages": 
@@ -38,15 +38,83 @@
                         Ou seja, clicou no botão, ele vai lá executar o método (função)
                         messageService.clear().  
                  Event Binding, como o click digito assim: (evento)="funçãoDisparada()"       
-            --></p>
-            <div *ngFor="let message of messagesService.getMessages()">
-                {{ message }}
-                <!-- nessa iteração do ARRAY<de mensagens>, eu vou exibir a mensagemT -->
-            </div>
+                -->
+            </p>
+            <mat-list>
+                <mat-list-item
+                    *ngFor="let message of messagesService.getMessages()"
+                >
+                    {{ message }}
+                </mat-list-item>
+            </mat-list>
+            <!-- Mensagens estarão numa Lista do MATERIAL. -->
         </mat-expansion-panel>
     </mat-accordion>
 
     <!-- PAREI NO MINUTO 24:00 -->
+
+    <!-- Aula 19-->
+    <!-- <div *ngIf="messagesService.getMessages().length">
+           <h2>Messages</h2>
+           <mat-accordion *ngIf="messagesService.getMessages().length">        
+               <mat-expansion-panel expanded="true">
+                   <mat-expansion-panel-header>
+                       <mat-panel-title> Messages </mat-panel-title>
+                       <mat-panel-description>
+                           {{ messagesService.getMessages().length }} record(s)
+                       </mat-panel-description>
+                   </mat-expansion-panel-header>
+                   <p>
+                       <button
+                           color="warn"
+                           mat-raised-button
+                           (click)="messagesService.clear()"
+                       >
+                           Clear messages
+                       </button>                        
+                   </p>
+                   <mat-list>
+                       <mat-list-item
+                           *ngFor="let message of messagesService.getMessages()"
+                       >
+                           {{ message }}
+                       </mat-list-item>
+                   </mat-list>
+               </mat-expansion-panel>
+           </mat-accordion>
+    -->
+
+    <!-- <div *ngIf="messagesService.getMessages().length"> -->
+    <!-- *ngIf: pra que se mostre essa parte (DIV), caso tenha alguma mensagem. getMessages() retorna um ARRAY. length() retorna um number, ref o tamanho do array.
+               Se ele tiver 0, o *ngIf interpreta como FALSE. E não mostra essa DIV.
+               Se ele retornar 1 ou mais de 1, *ngIf interpreta como TRUE. E mostra essa DIV.
+          Se ele não tiver nenhuma mensagem, daqui pra baixo, trecho abaixo não vai ser exibido. 
+    -->
+
+    <!--  <h2>Messages</h2> -->
+    <!-- texto na tela "Messages"-->
+
+    <!--  <mat-accordion *ngIf="messagesService.getMessages().length"> -->
+    <!-- O ACORDEON só vai acontecer, se tiver mensagens.
+           Um dos componentes visuais mais utilizados nas páginas web atuais é o chamado Accordion. 
+           Trata-se de uma estrutura formada por guias/seções que podem ser expandidas e fechadas 
+           ao se clicar no seu título.    
+    -->
+    <!-- O botão escrito "Clear messages": 
+                        Ou seja, se eu quiser limpar essas mensagens, eu vou clicar
+                        nessess botão. Esse botão vai invocar (chamar) via click.
+                        Ou seja, clicou no botão, ele vai lá executar o método (função)
+                        messageService.clear().  
+                 Event Binding, como o click digito assim: (evento)="funçãoDisparada()" 
+    -->
+
+    <!--  <p> -->
+    <!-- parágrafo -->
+
+    <!--  <button  color="warn"  mat-raised-button  (click)="messagesService.clear()" > -->
+    <!-- O botão ficará dentro de um PARÁGRAFO (<p></p>), para o texto não ficar muito colado. -->
+
+    <!-- nessa iteração do ARRAY<de mensagens>, eu vou exibir a mensagemT -->
 
     <!-- No arquivo .HTML é onde eu programo o conteúdo da minha página WEB.
      Acredito que seja o mais importante, neste curso, pois é onde tudo acontece na página WEB.
