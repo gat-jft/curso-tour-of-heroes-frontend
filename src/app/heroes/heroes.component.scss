@@ -1,11 +1,22 @@
+.mat-row:hover {
+    cursor: pointer;
+    background: whitesmoke;
+}
+
+/*
+// hover é passar em cima. No caso o pointer (PONTEIRO DO MAOUSE).
+
 .heroes {
  cursor: pointer;
 }
+// Foi substituído pela classe (elemento HTML que eu criar) .mat-row acima.
 
-/* Este selected que a gente fez não faz mais sentido na Aula 19.  
+
 .heroes li.selected {
   background-color: black;
   color: white
 }
-*/
+// Este selected que a gente fez não faz mais sentido na Aula 19.
 
+
+*/

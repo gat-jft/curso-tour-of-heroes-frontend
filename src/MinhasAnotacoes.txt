@@ -1,2 +1,9 @@
-Parei no minuto 24:06.
-Aula 19.
+ERRO na Aula 19:
+O PONTEIRO (mãozinha) não tava funcionando ao clicar na Mat-Table (<mat-row>)
+
+CORREÇÃO: Era pq eu não tinha criado uma class no TEMPLATE.
+          Qualquer estilo (no arquivo .scss, claro) que eu criar referente um elemento, eu tenho que criar uma class também no TEMPLATE (arquivo .html).
+
+
+
+

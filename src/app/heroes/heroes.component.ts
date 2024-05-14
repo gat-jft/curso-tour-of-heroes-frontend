@@ -8,6 +8,8 @@ import { HeroService } from "../hero.service";
 import { RouterModule } from "@angular/router"; // Para eu usar o "routerLink"", pra quando eu clicar/selecionar uma rota, ele desviar para a ROTA do arquivo "appp.routes.ts".
 //     Não tem MODULE no Angular 17.
 //     Veja as novidades em https://www.alura.com.br/artigos/novidades-angular-17?utm_term=&utm_campaign=%5BSearch%5D+%5BPerformance%5D+-+Dynamic+Search+Ads+-+Artigos+e+Conte%C3%BAdos&utm_source=adwords&utm_medium=ppc&hsa_acc=7964138385&hsa_cam=11384329873&hsa_grp=111087461203&hsa_ad=687448474447&hsa_src=g&hsa_tgt=aud-1295637864136:dsa-2273097816642&hsa_kw=&hsa_mt=&hsa_net=adwords&hsa_ver=3&gad_source=1&gclid=Cj0KCQjw2a6wBhCVARIsABPeH1uZL0TXB7LQXsLW004-hAfy1ZdgyADbCEUK6E_a9Vo4h2QawkdLjG4aAmFMEALw_wctB
+import { MatTableModule } from "@angular/material/table";
+import { HEROES } from "../mock-heroes";
 
 @Component({
     selector: "app-heroes",
@@ -20,6 +22,7 @@ import { RouterModule } from "@angular/router"; // Para eu usar o "routerLink"",
         HeroDetailComponent,
         MatToolbarModule,
         RouterModule,
+        MatTableModule,
     ],
 })
 // Com o 'implements OnInit', o OnInit ele faz parte do ciclo de vida do
@@ -33,6 +36,9 @@ import { RouterModule } from "@angular/router"; // Para eu usar o "routerLink"",
 //   na declaração da Classe que for usar este Service E
 //   implemento o OnInit na Classe.
 export class HeroesComponent implements OnInit {
+    displayedColumns: string[] = ["id", "name"];
+    // Propriedade displayedColumns. É uma lista de strings (string[], e ela já vai receber os valores 'id' e 'name)
+
     heroes: Hero[] = []; // Nossa propriedade 'heroes' agora vai ser do Tipo Heroes[], e ela vai inicar vazia ([]).
 
     // Pra eu poder utilizar o nosso Service (HeroService), eu vou ter que adiciconá-lo (injeção de dependência) no Construtor desta Classe.

@@ -1,20 +1,36 @@
 <div *ngIf="hero">
     <h1>{{ hero.name | uppercase }} Details</h1>
-    <div><span style="font-size: xx-large">id: </span>{{ hero.id }}</div>
-    <div><span>name: </span>{{ hero.name }}</div>
 
-    <div>
-        <label for="name">Hero name: </label>
-        <input
-            id="name"
-            [(ngModel)]="hero.name"
-            placeholder="name"
-            type="text"
-        />
-    </div>
+    <mat-card>
+        <mat-card-content fxLayout="column">
+            <mat-form-field>
+                <label>ID</label>
+                <input matInput disabled [value]="hero.id" />
+            </mat-form-field>
+            <!-- <mat-label> não está funcionando. <label> funciona.-->
+            <!-- mat-form-field é do import MatInputModule, do MATERIAL. O VALOR dessa entrada (input) é o hero.id. -->
+            <!-- disabled é pq ninguém vai aterar o id do nosso Hero. É um CAMPO desabilitado. Então, é um campo SOMENTE LEITURA. -->
+            <!-- value="{{hero.name}}", nessa propriedade, eu poderia usar como COLCHETES também. Fica mais fácil, porque ao invés de eu colocar as chaves duplas, {{}}, eu posso colocar o VALOR de uma propriedade nossa, ou, o VALOR de um método nosso. Assim:    [value]="hero.id".  // Então, essa é uma outra forma de escrevermos uma INTERPOLAÇÃO mais fácil, quando a gente tá usando um TEMPLATE (arquivo ;html) Angular.    Vimos isso na criação do Component HeroDetail.component, na parte de INTERPOLAÇÃO.-->
 
-    <button mat-raised-button (click)="goBack()">Go Back</button>
-    <!-- BOTÃO pra voltar. 
-                "Go back" é "volte".
-    -->
+            <mat-form-field>
+                <label>Hero name</label>
+                <input
+                    id="name"
+                    MatInput
+                    [(ngModel)]="hero.name"
+                    placeholder="Name"
+                    type="text"
+                />
+            </mat-form-field>
+            <!-- Agora, esse mat-form-field, ele tem aceita um INPUT (entrada do usuário). O valor desse input é o hero.name. O placeholder é "name". E o type dessa entrada é "texto". -->
+            <!-- Se eu não usasse os COLCHETES [], teria que ficar assim: (ngModel)="(hero.name)". -->
+        </mat-card-content>
+        <!-- mat-card-content e mat-card-actons são os botões do MatCard.-->
+
+        <mat-card-actions>
+            <button mat-raised-button (click)="goBack()">Go Back</button>
+            <!-- BOTÃO pra voltar. //  "Go back" é "volte". -->
+        </mat-card-actions>
+        <!-- mat-card-actions é para eu fazer o BOTÃO. -->
+    </mat-card>
 </div>
