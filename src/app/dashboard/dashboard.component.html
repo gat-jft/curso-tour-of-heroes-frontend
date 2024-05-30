@@ -50,6 +50,14 @@
     </mat-card>
 </div>
 <!-- 
+    [routerLink]="['/heroes/hero.id']"; 
+    // Escrito assim dessa forma (ATRIBUTO="string"), fica melhor a visulalização, do que da forma abaixo.
+    // o routerLink RECEBE um ArrayDeStrings. Por isso tá separado por vírgula.
+    // Posso acessar a variável "hero", do comando *ngFor acima.
+    // hero.id é um NUMBER, que aqui entra pra formar a string. 
+    //     Substituiu a inserção desta forma abaixo
+    //     routerLink="/heroes/{{ hero.id }}".    
+
     routerLink="/heroes/{{ hero.id }}" // Pra quando ao clicar em cima de alguma HERÓI no DASHBOARD, ele 
        MUDE A ROTA para a ROTA do Detalhe do Herói.
        

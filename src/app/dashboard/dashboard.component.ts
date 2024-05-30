@@ -25,17 +25,18 @@ import { MaterialModule } from "../material/material.module";
         MatInputModule,
     ],
 import { Component, OnInit } from "@angular/core";
-import { HeroService } from "../hero.service";
-import { Hero } from "../hero.model";
-import { MatCardModule } from "@angular/material/card";
+import { HeroService } from "../core/services/hero.service";
+import { Hero } from "../core/models/hero.model";
 import { CommonModule } from "@angular/common";
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { RouterModule } from "@angular/router";
+import { NgModule } from "@angular/core";
+import { CoreModule } from "../core/core.module";
 
 @Component({
     selector: "app-dashboard",
     standalone: true,
-    imports: [MatCardModule, CommonModule, FlexLayoutModule, RouterModule],
+    imports: [CoreModule, CommonModule, FlexLayoutModule, RouterModule],
     templateUrl: "./dashboard.component.html",
     styleUrl: "./dashboard.component.scss",
 })

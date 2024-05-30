@@ -1,9 +1,15 @@
+
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { finalize, Observable, tap } from "rxjs";
 import { environment } from "../../../environments/environment";
 import { Hero } from "../models/hero.model";
 import { LoadingService } from "./loading.service";
+
+import { Injectable } from "@angular/core";
+import { Observable, of } from "rxjs";
+import { Hero } from "../models/hero.model";
+import { HEROES } from "./mock-heroes";
 import { MessageService } from "./message.service";
 
 // Este Service (Classe) será INJETÁVEL. Fará parte do SID.
@@ -173,6 +179,33 @@ export class HeroService {
 //     }
 // }
 
+    constructor(private messageService: MessageService) {}
+
+    // Agora o método getHeroes() RETORNA (:) uma lista ASSÍNCRONA (não se sabe de onde, pode ser de um back-end. Dados síncronos, quer dizer que eles estão no nosso código, à disposição imediata) de Hero (ie, um Observable<Hero[]>).   // Observable<T> é para dizer que o dado (T), à partir de agora é um dado assíncrono (dado vindo de um BACK-END, não um dado mocado no nosso projeto, em que tenho um DELAY para recebê-lo).
+    getHeroes(): Observable<Hero[]> {
+        const heroes = of(HEROES); // of(T) é uma FUNÇÃO (uma implementação do Antular).
+
+        // Uma vez que eu injetei o MessageService aqui dentro do HeroServive,
+        // quando a gente OBTER a nossa Lista<de Heroes>, eu vou adicionar uma mensagem.
+        // A mensagem é:
+        // "HeroService: fetched heroes"
+        //      // HeroService: de onde essa mensagem foi obtida.
+        //      // fetched heroes = obtida de heroes
+        //
+        // Com isso, eu estou adicionando (add), dentro do meu messageService, essa mensagem
+        this.messageService.add("HeroService: fetched heroes");
+
+        return heroes;
+    }
+
+    getHero(id: number): Observable<Hero> {
+        const hero = HEROES.find((hero) => hero.id === id)!; // O JavaScript tem o método find(): Dentro dele eu tenho que colocar um método (predicate), e este método vai percorrer cada item da LISTA, e aí, quando uma condição VERDADEIRA for encontrada, ele retorna pra nós. Aí eu vou colocar uma ARROW FUNCTION **  // Condição: Se o hero.id, do hero, FOR IGUAL ao id passado neste getHero().    // A "!", é que pode ser que é passado um id que não existe
+        this.messageService.add(`HeroService: fetched hero id=${id}`); // Coloquei as CRASES, porque a gente vai adicionar um template (modelo) literal ("No HeroService: encontrado(fetched) o id ...") do JavaScript.  // Então, se encontrou ou não o hero, vamos ADICIONAR (add) uma mensagem.
+
+        return of(hero); // retorno o hero que a gente encontrou. // "of" é porque é de um OBSERVABLE.
+    }
+}
+
 // ARROW FUNCTION:
 //   Em termos simples, uma arrow function é uma forma concisa de escrever uma função em JavaScript. Ela otimiza a escrita do seu código, deixando-o mais limpo, enxuto e aumentando a legibilidade.
 //   arrow (inglês) é flecha. // É uma flecha (seta) "=>" da função. // Usamos para o retorno da função. // A função é escrita da seguinte forma, por exemplo: (x, y ...) => x . b
@@ -185,6 +218,7 @@ export class HeroService {
 // Quando eu pedir uma lista de Heróis, esta lista de heróis será um OBSERVABLE (observável).
 //
 // E aí, o nosso Componente, ele vai subscrever / ACEDER (subscribe) pra este OBSERVABLE (de lista de heróis).
+// E aí, o nosso Componente, ele vai subscrever (subscrive) pra este OBSERVABLE (de lista de heróis).
 //
 // Então, quando a gente fizer uma chamada e tiver um retorno do BACK-END, o nosso Componente que está inscrito pra receber uma NOTIFICAÇÃO, ele vai tomar uma atitute correta pra poder POPULAR os dados.
 //

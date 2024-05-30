@@ -7,6 +7,13 @@ import { MatInputModule } from "@angular/material/input";
 import { MatListModule } from "@angular/material/list";
 import { MessageService } from "../../services/message.service";
 
+import { Component } from "@angular/core";
+import { MessageService } from "../../services/message.service";
+import { CommonModule } from "@angular/common";
+import { MatButtonModule } from "@angular/material/button";
+import { MatExpansionModule } from "@angular/material/expansion";
+import { MatListModule } from "@angular/material/list";
+
 @Component({
     selector: "app-messages",
     standalone: true,
@@ -18,6 +25,8 @@ import { MessageService } from "../../services/message.service";
         MatFormFieldModule,
         MatInputModule,
     ],
+
+    imports: [CommonModule, MatButtonModule, MatExpansionModule, MatListModule],
     templateUrl: "./messages.component.html",
     styleUrl: "./messages.component.scss",
 })

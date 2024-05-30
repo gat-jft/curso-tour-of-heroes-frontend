@@ -19,6 +19,18 @@ const COMPONENTS = [
     PageNotFoundComponent,
     LoadingComponent,
 ];
+
+import { NgModule, Optional, SkipSelf } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { MaterialModule } from "../core/material/material.module";
+import { FormsModule } from "@angular/forms";
+import { MessagesComponent } from "./components/messages/messages.component";
+import { ToolbarComponent } from "./components/toolbar/toolbar.component";
+import { FlexLayoutModule } from "@angular/flex-layout";
+import { FlexLayoutServerModule } from "@angular/flex-layout/server";
+import { RouterModule } from "@angular/router";
+
+const COMPONENTS = [MessagesComponent, ToolbarComponent];
 const MODULES = [
     CommonModule,
     FormsModule,
@@ -27,6 +39,9 @@ const MODULES = [
     RouterModule,
     MatFormFieldModule,
     MatInputModule,
+    FlexLayoutServerModule,
+    MaterialModule,
+    RouterModule,
 ];
 
 @NgModule({
@@ -45,6 +60,9 @@ const MODULES = [
 })
 export class CoreModule {}
 /*
+})
+export class CoreModule {
+    /*
       // Esse CONSTRUTOR desta Classe (Módulo) não pode ser usado em nosso projeto, pq o CoreModule é usado em vários Components.
       // Ele pode ser bloqueado, pq nossos Components são na versão do ANGULAR com os Components "standAlone", ie, sem a necessidade de estar em um Módulo.
       //     
@@ -66,6 +84,7 @@ export class CoreModule {}
             //    MAS, QUANDO for uma interpolação, não funciona "" ou ''. // Só funciona com a STRING entre CRASES duplas. (` `)
         }
     */
+}
 
 /*
     // Código abaixo (um CONSTRUTOR), é pra gente BLOQUEAR o CoreModule, para que ele não seja importado em outros Mòdulos: para que ele seja importado somente no AppModule.
