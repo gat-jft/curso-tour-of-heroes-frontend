@@ -1,0 +1,54 @@
+<mat-toolbar color="primary">
+    <span>{{ title }}</span>
+    <span fxFlex></span>
+    <!-- FxFlex é uma DIRETIVA do pacote AngularFexLayout, pra eu poder usar o FlexLayout, 
+        sem precisar de uma Classe CSS. Assim, ele tem o mesmo efeito da Classe que eu copiei 
+        do AngularMaterial.-->
+
+    <button
+        class="example-icon"
+        aria-label="menuItem.toolTipText"
+        mat-icon-button
+        [matTooltip]="menuItem.toolTipText"
+        *ngFor="let menuItem of menuItems"
+        [routerLink]="[menuItem.routerLink]"
+    >
+        <mat-icon>{{ menuItem.icon }}</mat-icon>
+        <!-- 
+            A informação (dado) que a gente vai colocar no ÍCONE do ItemDoMenu (menuItem). 
+            No <button> eu colocoque terá um <mat-icon-button>, ie terá um ÍCONE do Material.
+            
+            Fora do <button> eu coloco o <mat-icon>
+                ÍCONE de um lutador de artes marciais. 
+             - O atributo aria-label (aria-label="Texto") serve para os deficientes visuais passarem o mouse 
+               em cima do ÍCONE DO LUTADOR, aí fala este código. 
+             - O atributo routerLink="rota", serve pra quando eu clicar no link, ir para a rota dos "".
+             - matTooltip serve para DICAS (tips). É pra quando passar o mouse em cima do ÍCONE, e ele mostra a dica "HeroesT".
+            
+            Não preciso usar mais "Dashboard" em aria-label. Vou usar o ="menuItem.toolTipText". Assim:         aria-label="menuItem.toolTipText"
+
+            routerLink="menuItem.routerLink" // O routerLink já vai vir como uma STRING, portando eu não devo colocar os colchetes neste atributo.
+        -->
+    </button>
+</mat-toolbar>
+
+<!--
+<button
+class="example-icon"
+mat-icon-button
+aria-label="Heroes list"
+matTooltip="Heroes"
+routerLink="/heroes"
+>
+<mat-icon>sports_martial_arts</mat-icon>
+No <button> eu colocoque terá um <mat-icon-button>, ie terá um ÍCONE do Material.
+   /* 
+    Fora do <button> eu coloco o <mat-icon>
+        ÍCONE de um lutador de artes marciais. 
+     - O atributo aria-label (aria-label="Texto") serve para os deficientes visuais passarem o mouse 
+       em cima do ÍCONE DO LUTADOR, aí fala este código. 
+     - O atributo routerLink="rota", serve pra quando eu clicar no link, ir para a rota dos "".
+     - matTooltip serve para DICAS (tips). É pra quando passar o mouse em cima do ÍCONE, e ele mostra a dica "HeroesT".
+  */  
+</button>
+-->

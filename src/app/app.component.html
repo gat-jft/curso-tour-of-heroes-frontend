@@ -1,56 +1,32 @@
-<mat-toolbar color="primary">
-    <span>{{ title }}</span>
-    <span fxFlex></span>
-    <!-- FxFlex é uma DIRETIVA do pacote AngularFexLayout, pra eu poder usar o FlexLayout, 
-        sem precisar de uma Classe CSS. Assim, ele tem o mesmo efeito da Classe que eu copiei 
-        do AngularMaterial.-->
+<app-toolbar [title]="title" [menuItems]="menuItems"> </app-toolbar>
 
-    <button
-        class="example-icon"
-        mat-icon-button
-        aria-label="Dashboard"
-        matTooltip="Dashboard"
-        routerLink="/dashboard"
-    >
-        <mat-icon>dashboard</mat-icon>
-        <!-- No <button> eu colocoque terá um <mat-icon-button>, ie terá um ÍCONE do Material.
-            
-            Fora do <button> eu coloco o <mat-icon>
-                ÍCONE de um lutador de artes marciais. 
-             - O atributo aria-label (aria-label="Texto") serve para os deficientes visuais passarem o mouse 
-               em cima do ÍCONE DO LUTADOR, aí fala este código. 
-             - O atributo routerLink="rota", serve pra quando eu clicar no link, ir para a rota dos "".
-             - matTooltip serve para DICAS (tips). É pra quando passar o mouse em cima do ÍCONE, e ele mostra a dica "HeroesT".
-            -->
-    </button>
-    <button
-        class="example-icon"
-        mat-icon-button
-        aria-label="Heroes list"
-        matTooltip="Heroes"
-        routerLink="/heroes"
-    >
-        <mat-icon>sports_martial_arts</mat-icon>
-        <!-- No <button> eu colocoque terá um <mat-icon-button>, ie terá um ÍCONE do Material.
-            
-            Fora do <button> eu coloco o <mat-icon>
-                ÍCONE de um lutador de artes marciais. 
-             - O atributo aria-label (aria-label="Texto") serve para os deficientes visuais passarem o mouse 
-               em cima do ÍCONE DO LUTADOR, aí fala este código. 
-             - O atributo routerLink="rota", serve pra quando eu clicar no link, ir para a rota dos "".
-             - matTooltip serve para DICAS (tips). É pra quando passar o mouse em cima do ÍCONE, e ele mostra a dica "HeroesT".
-            -->
-    </button>
-</mat-toolbar>
-
-<!-- Vamos usar também o FlexLayout. O fxLayoutGap="12px" faz a distância pra nós, que será de 12px, entre os elementos desta <div>: a rota e as mensagens. -->
 <div class="content" fxLayoutGap="12px">
     <router-outlet></router-outlet>
-    <!--  <app-heroes></app-heroes> -->
     <app-messages></app-messages>
 </div>
 
-<!-- NÃO tem mais o <app-heroes></app-heroes> e o <app-heroes></app-heroes>.
+<!--
+     /* FxFlex é uma DIRETIVA do pacote AngularFexLayout, pra eu poder usar o FlexLayout, 
+        sem precisar de uma Classe CSS. Assim, ele tem o mesmo efeito da Classe que eu copiei 
+        do AngularMaterial.
+    */
+
+    /*No <button> eu colocoque terá um <mat-icon-button>, ie terá um ÍCONE do Material.
+            
+            Fora do <button> eu coloco o <mat-icon>
+                ÍCONE de um lutador de artes marciais. 
+             - O atributo aria-label (aria-label="Texto") serve para os deficientes visuais passarem o mouse 
+               em cima do ÍCONE DO LUTADOR, aí fala este código. 
+             - O atributo routerLink="rota", serve pra quando eu clicar no link, ir para a rota dos "".
+             - matTooltip serve para DICAS (tips). É pra quando passar o mouse em cima do ÍCONE, e ele mostra a dica "HeroesT".
+    */
+
+    /* Vamos usar também o FlexLayout. O fxLayoutGap="12px" faz a distância pra nós, que será de 12px, entre os elementos desta <div>: 
+        a rota e as mensagens. 
+    */
+
+    /* 
+     NÃO tem mais o <app-heroes></app-heroes> e o <app-heroes></app-heroes>.
      //
      // Agora pra aparecer os Herois (<app-heroes>), eu tenho que colocar a rota (/heroes) depois do "www.localhost:4200", na URL.
      //
@@ -67,4 +43,12 @@
      //
      // Daí, caso tenha na minha URL o "/heroes", o vou falar que o component "heroes" seja exibido
      // na nossa página. 
+   */
+
+
+
+
+   
+
+
 -->

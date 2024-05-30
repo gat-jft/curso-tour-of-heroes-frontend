@@ -1,9 +1,16 @@
-ERRO na Aula 19:
+ERRO1 na Aula 19:
 O PONTEIRO (mãozinha) não tava funcionando ao clicar na Mat-Table (<mat-row>)
 
 CORREÇÃO: Era pq eu não tinha criado uma class no TEMPLATE.
           Qualquer estilo (no arquivo .scss, claro) que eu criar referente um elemento, eu tenho que criar uma class também no TEMPLATE (arquivo .html).
 
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+ERRO2
+Quando eu criei o Module MaterialModule, eu criei um Novo Arquivo .ts. Copiei nele a diretiva @NgModule e tudo mais que tem num Module.
+Não funcionou: Quando eu criar um Module, devo criar via Terminal, com o comando:
+ng g module <NomeDoModule>
 
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+PAREI NO MINUTO 29:23.
 

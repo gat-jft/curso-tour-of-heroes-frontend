@@ -1,28 +1,16 @@
 import { CommonModule, Location } from "@angular/common";
 import { Component, OnInit } from "@angular/core";
 import { FormsModule } from "@angular/forms";
-import { Hero } from "../hero.model";
-import { HeroService } from "../hero.service";
+import { Hero } from "../core/models/hero.model";
+import { HeroService } from "../core/services/hero.service";
 import { ActivatedRoute } from "@angular/router";
-import { MatExpansionModule } from "@angular/material/expansion";
-import { MatButtonModule } from "@angular/material/button";
-import { MatCardModule } from "@angular/material/card";
-import { MatInputModule } from "@angular/material/input"; // Para eu colocar os itens (campos editáveis ou não, como address, email, id, name) dentro do MatCard
 import { FlexLayoutModule } from "@angular/flex-layout";
+import { CoreModule } from "../core/core.module";
 
 @Component({
     selector: "app-hero-detail",
     standalone: true,
-    imports: [
-        CommonModule,
-        FormsModule,
-        MatButtonModule,
-        MatExpansionModule,
-        MatCardModule,
-        MatInputModule,
-        FlexLayoutModule,
-        CommonModule,
-    ],
+    imports: [FormsModule, CoreModule, FlexLayoutModule, CommonModule],
     templateUrl: "./hero-detail.component.html",
     styleUrls: ["./hero-detail.component.scss"],
 })
