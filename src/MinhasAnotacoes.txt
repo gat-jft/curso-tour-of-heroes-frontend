@@ -11,6 +11,158 @@ Não funcionou: Quando eu criar um Module, devo criar via Terminal, com o comand
 ng g module <NomeDoModule>
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
+Abrir as CONFIGURAÇOES do VS:
 
-PAREI NO MINUTO 29:23.
+Ctrl + ,
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+Achar o NIVEL (caminho) de um arquivo:
+
+Digito nos "../" E ESPERO.
+Vou digitando e esperando pq meu PC é lento. KKKKKKK.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+Configurar o VS para quando eu tirar um import dos [], ele tirar automaticamente a declaração do
+import na parte de cima do código, AO SALVAR:
+
+Entro nas Configurações do VS, no arquivo json.
+
+Pesquiso “codeActionOnSave”, vou digitar:
+   "source.organizeImports": "always"
+no
+"editor.codeActionsOnSave":  { }
+
+Ficando:
+"editor.codeActionsOnSave":  {
+    "source.organizeImports":"always"
+  }
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+standAlone ou não?
+
+https://www.youtube.com/watch?v=rOYzrYLyy_4
+
+Excelente vídeo sobre:
+- Consumir api,
+- remover os import automaticamente ao deletar dos [] do "import: []",
+- mudança na nova versão do ANGULAR (com standAlone true),
+- inserir rotas etc,
+- e standAlone também claro!
+
+-------------------------------------------------------------------------------------------------------------------------------------
+// import { NgModule } from "@angular/core";
+// DESNECESSÁRIO. quando for um arquivo simples, como para salvar uma CONSTANTE reutilizável.
+//                Mas como é uma CONSTANTE, não preciso gravar ela (constante) como um Componente, pq na verdade não é um Componente.
+//                   Um Component é composto de 3 arquivos (HTML, CSS, TS. O TS um JavaScript com mais funcionalidades).
+//                MAS MESMO SENDO UM arquivo é não um Component (composto por 3 arqs) e nem um Module, TENHO QUE COLOCAR A EXTESÃO .ts.
+//                   Um Component eu uso "@NgComponent" e um Module eu uso "@NgModule".
+//
+// Este IMPORT eu uso quando estiver editante um um Module (@NgModule).
+// Uso o IMPORT "NgComponent" quando estiver me referenciando a um Component (@NgComponent).
+// Mas como é uma CONSTANTE, não preciso gravar ela (constante) como um Componente, pq na verdade não é um Componente. Um Component é composto de 3 arquivos (HTML, CSS, TS. O TS um JavaScript com mais funcionalidades). // MAS MESMO SENDO UM arquivo é não um Component (composto por 3 arqs) e nem um Module, TENHO QUE COLOCAR A EXTESÃO .ts.  // Um Component eu uso "@NgComponent" e um Module eu uso "@NgModule".
+
+-------------------------------------------------------------------------------------------------------------------------------------
+ESSE TRECHO ABAIXO FOI TIRADO DO arquivo "app-routing.module.ts".
+
+
+/* Match = correspondência.
+
+   A estratégia de correspondência de caminho 'completa' corresponde ao URL inteiro.
+      * É importante fazer isso ao redirecionar rotas de caminho vazio.
+      * Caso contrário, como um caminho vazio é um prefixo de qualquer URL,
+      * o roteador aplicaria o redirecionamento mesmo durante a navegação
+      * para o destino do redirecionamento, criando um loop infinito.
+*/
+
+/*
+
+// import { NgModule } from "@angular/core"; // DESNECESSÁRIO. Usaria este IMPORT se este arquivo referenciasse à um Module (@NgModule). Mas como é uma CONSTANTE, não preciso gravar ela (constante) como um Componente, pq na verdade não é um Componente. Um Component é composto de 3 arquivos (HTML, CSS, TS. O TS um JavaScript com mais funcionalidades). // MAS MESMO SENDO UM arquivo é não um Component (composto por 3 arqs) e nem um Module, TENHO QUE COLOCAR A EXTESÃO .ts.  // Um Component eu uso "@NgComponent" e um Module eu uso "@NgModule".
+import { NgModule } from "@angular/core";
+import { Routes } from "@angular/router";
+import { DashboardComponent } from "./dashboard/dashboard.component";
+import { HeroDetailComponent } from "./heroes/components/hero-detail/hero-detail.component";
+import { HeroesComponent } from "./heroes/components/heroes/heroes.component";
+
+// Esse arquivo app.routes.ts, é onde eu vou declarar minhas rotas. É uma constante GLOBAL.
+ const routes: Routes = [
+    { path: "", redirectTo: "/dashboard", pathMatch: "full" }, // Para nossa ROTA INICIAL (iniciar a nossa aplicação) a rota REdirecione automaticamente para o "/dashboard". E com isso, não começar exibindo na tela só com o MatToolBar. // O path dele é vazio, ou seja, a URL depois do www.localhost/ é nada.  // Esse REDIRECT vai ser pro '/dashboard' (URL /dashboard)   // Para rotas vazias, eu tenho que adicionar o pathMatch: 'full' -> é pra que ele pegue a rota (o '/dashboard') e coloque ele como nossa ROTA INICIAL, e o MATCH (o que tá entre na URL), seja dessa propriedade FULL. // match() encontra uma string num expressão por exemplo.
+    { path: "dashboard", component: DashboardComponent },
+    { path: "heroes/:id", component: HeroDetailComponent }, // Quando eu digitar "/heroes/" + o id de algum Hero, eu vou querer que abra o Componente HeroDetailComponent. // Com isso, eu adicionei essa entrada na nossa ROTA.
+    { path: "heroes", component: HeroesComponent },
+];
+
+@NgModule({
+    declarations:[routes],
+    imports:[],
+    exports: [routes]
+})
+export class
+
+*/
+
+/*
+Match = correspondência.
+
+   A estratégia de correspondência de caminho 'completa' corresponde ao URL inteiro.
+      * É importante fazer isso ao redirecionar rotas de caminho vazio.
+      * Caso contrário, como um caminho vazio é um prefixo de qualquer URL,
+      * o roteador aplicaria o redirecionamento mesmo durante a navegação
+      * para o destino do redirecionamento, criando um loop infinito.
+*/
+
+/*
+
+// NAS PRIMEIRA AULTAS, ESTE MÓDULO FOI DESNECESSÁRIO.
+// Eu criei só uma constante, como arquivo .ts.
+//     Que foi o arquivo routes.ts, que só tinha a constante "routes", e não era declarado como um Module (usando o @NgModule({ imports, declarations, export}))
+// Nas novidades do ANGULAR 17, é que não tem mais modules.
+//     O que é um module?
+//     Um module é um mecanismo para agrupar components, directives , pipes e services relacionados, de
+//     forma a combinar com outros módulos para criar um aplicativo. Uma aplicação angular pode ser pensada
+//     como um quebra-cabeça onde cada peça (ou cada módulo) é necessária para poder ver a imagem completa.
+//     https://www.macoratti.net/17/06/angcli_pag5.htm#:~:text=Um%20module%20%C3%A9%20um%20mecanismo,poder%20ver%20a%20imagem%20completa.
+
+// import { NgModule } from "@angular/core";
+// import { CommonModule } from "@angular/common";
+// import { RouterModule, Routes } from "@angular/router";
+// import { HeroesComponent } from "./heroes/heroes.component";
+
+// const routes: Routes = [{ path: "heroes", component: HeroesComponent }];
+// // Esse tipo Routes, ele faz parte de um MÓDULO do Angular, chamado @angular/router.
+// // Como ele funciona? Dentro dele a gente vai especificar algumas ROTAS.
+// // Ele é um ARRAY, e tem alguns atributos:
+// //     path (caminho), e o componente inicial.
+// //
+// // Então, quando eu tiver por exemplo no "www.localhost:4200" ele vai colocar o "heroes" na URL,
+// // ficando assim a URL: "www.localhost:4200/heroes"
+// //
+// // Daí, caso tenha na minha URL o "/heroes", o vou falar que o component "heroes" seja exibido
+// // na nossa página.
+// //
+// // Devo adicionar também o pacote RouterModule, no import do @NgModule abaixo.
+
+// @NgModule({
+//     declarations: [], // Desnecessário esta declaração.
+//     imports: [
+//         CommonModule, // Desnecessário. CommomModule tem as diretivas NgIf, NgFor etc.
+//         RouterModule.forRoot(routes),
+//     ], // o "forRoot(routes)", estou falando que o eu quero que a minha aplicação inicial, ela inicie com esta constante "routes", acima.
+//     exports: [RouterModule],
+// })
+// export class AppRoutingModule {}
+
+*/
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+PAREI NO MINUTO 12:00.
 

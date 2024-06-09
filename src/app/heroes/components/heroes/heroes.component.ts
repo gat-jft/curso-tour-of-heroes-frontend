@@ -1,15 +1,13 @@
-import { Component, OnInit } from "@angular/core";
-import { Hero } from "../core/models/hero.model";
 import { CommonModule } from "@angular/common";
+import { Component, OnInit } from "@angular/core";
 import { FormsModule } from "@angular/forms";
+import { RouterModule } from "@angular/router"; // Para eu usar o "routerLink"" no TEMPLATE (arquivo HTML), pra quando eu clicar/selecionar uma rota, ele desviar para a ROTA do arquivo "appp.routes.ts".
+import { HeroService } from "../../../core/services/hero.service";
 import { HeroDetailComponent } from "../hero-detail/hero-detail.component";
-import { HeroService } from "../core/services/hero.service";
-import { RouterModule } from "@angular/router"; // Para eu usar o "routerLink"", pra quando eu clicar/selecionar uma rota, ele desviar para a ROTA do arquivo "appp.routes.ts".
 
-//     Não tem MODULE no Angular 17.
-//     Veja as novidades em https://www.alura.com.br/artigos/novidades-angular-17?utm_term=&utm_campaign=%5BSearch%5D+%5BPerformance%5D+-+Dynamic+Search+Ads+-+Artigos+e+Conte%C3%BAdos&utm_source=adwords&utm_medium=ppc&hsa_acc=7964138385&hsa_cam=11384329873&hsa_grp=111087461203&hsa_ad=687448474447&hsa_src=g&hsa_tgt=aud-1295637864136:dsa-2273097816642&hsa_kw=&hsa_mt=&hsa_net=adwords&hsa_ver=3&gad_source=1&gclid=Cj0KCQjw2a6wBhCVARIsABPeH1uZL0TXB7LQXsLW004-hAfy1ZdgyADbCEUK6E_a9Vo4h2QawkdLjG4aAmFMEALw_wctB
-import { HEROES } from "../core/services/mock-heroes";
-import { CoreModule } from "../core/core.module";
+//     Não tem MODULE no Angular 17.     Veja as novidades em https://www.alura.com.br/artigos/novidades-angular-17?utm_term=&utm_campaign=%5BSearch%5D+%5BPerformance%5D+-+Dynamic+Search+Ads+-+Artigos+e+Conte%C3%BAdos&utm_source=adwords&utm_medium=ppc&hsa_acc=7964138385&hsa_cam=11384329873&hsa_grp=111087461203&hsa_ad=687448474447&hsa_src=g&hsa_tgt=aud-1295637864136:dsa-2273097816642&hsa_kw=&hsa_mt=&hsa_net=adwords&hsa_ver=3&gad_source=1&gclid=Cj0KCQjw2a6wBhCVARIsABPeH1uZL0TXB7LQXsLW004-hAfy1ZdgyADbCEUK6E_a9Vo4h2QawkdLjG4aAmFMEALw_wctB
+import { CoreModule } from "../../../core/core.module";
+import { Hero } from "../../../core/models/hero.model";
 
 @Component({
     selector: "app-heroes",

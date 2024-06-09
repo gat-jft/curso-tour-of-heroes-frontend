@@ -1,19 +1,17 @@
-import { NgModule, Optional, SkipSelf } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { MaterialModule } from "../core/material/material.module";
+import { NgModule } from "@angular/core";
+import { FlexLayoutModule } from "@angular/flex-layout";
 import { FormsModule } from "@angular/forms";
+import { RouterModule } from "@angular/router";
+import { MaterialModule } from "../material/material.module";
 import { MessagesComponent } from "./components/messages/messages.component";
 import { ToolbarComponent } from "./components/toolbar/toolbar.component";
-import { FlexLayoutModule } from "@angular/flex-layout";
-import { FlexLayoutServerModule } from "@angular/flex-layout/server";
-import { RouterModule } from "@angular/router";
 
 const COMPONENTS = [MessagesComponent, ToolbarComponent];
 const MODULES = [
     CommonModule,
     FormsModule,
     FlexLayoutModule,
-    FlexLayoutServerModule,
     MaterialModule,
     RouterModule,
 ];

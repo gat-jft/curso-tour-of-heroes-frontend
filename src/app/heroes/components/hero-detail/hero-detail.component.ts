@@ -1,11 +1,11 @@
 import { CommonModule, Location } from "@angular/common";
 import { Component, OnInit } from "@angular/core";
-import { FormsModule } from "@angular/forms";
-import { Hero } from "../core/models/hero.model";
-import { HeroService } from "../core/services/hero.service";
-import { ActivatedRoute } from "@angular/router";
 import { FlexLayoutModule } from "@angular/flex-layout";
-import { CoreModule } from "../core/core.module";
+import { FormsModule } from "@angular/forms"; // Para usarmos o [(ngModel)]="hero.name" no TEMPLATE, e não dar erro.
+import { ActivatedRoute } from "@angular/router";
+import { CoreModule } from "../../../core/core.module";
+import { Hero } from "../../../core/models/hero.model";
+import { HeroService } from "../../../core/services/hero.service";
 
 @Component({
     selector: "app-hero-detail",
