@@ -79,11 +79,18 @@ export const appConfig: ApplicationConfig = {
 //       Com o comando: // "ng g interceptor core/interceptors/loading --skip-tests" // --skip-tests é para não gerar o arquivo de testes.
 import { ApplicationConfig } from '@angular/core';
 import { provideRouter } from '@angular/router';
+import { ApplicationConfig } from "@angular/core";
+import { provideRouter } from "@angular/router";
 
-import { routes } from './app.routes';
-import { provideClientHydration } from '@angular/platform-browser';
-import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { routes } from "./app-routing.module";
+
+import { provideClientHydration } from "@angular/platform-browser";
+import { provideAnimationsAsync } from "@angular/platform-browser/animations/async";
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideRouter(routes), provideClientHydration(), provideAnimationsAsync()]
+    providers: [
+        provideRouter(routes),
+        provideClientHydration(),
+        provideAnimationsAsync(),
+    ],
 };
