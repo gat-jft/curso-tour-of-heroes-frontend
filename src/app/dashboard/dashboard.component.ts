@@ -1,6 +1,7 @@
 import { CommonModule } from "@angular/common";
 import { Component, OnInit } from "@angular/core";
 import { FlexLayoutModule } from "@angular/flex-layout";
+import { MatCardModule } from "@angular/material/card";
 import { RouterModule } from "@angular/router";
 import { Hero } from "../core/models/hero.model";
 import { HeroService } from "../core/services/hero.service";
@@ -9,7 +10,13 @@ import { MaterialModule } from "../material/material.module";
 @Component({
     selector: "app-dashboard",
     standalone: true,
-    imports: [CommonModule, FlexLayoutModule, RouterModule, MaterialModule],
+    imports: [
+        CommonModule,
+        FlexLayoutModule,
+        RouterModule,
+        MaterialModule,
+        MatCardModule,
+    ],
     templateUrl: "./dashboard.component.html",
     styleUrl: "./dashboard.component.scss",
 })

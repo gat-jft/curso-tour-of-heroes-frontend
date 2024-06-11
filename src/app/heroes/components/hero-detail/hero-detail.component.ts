@@ -2,15 +2,28 @@ import { CommonModule, Location } from "@angular/common";
 import { Component, OnInit } from "@angular/core";
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { FormsModule } from "@angular/forms"; // Para usarmos o [(ngModel)]="hero.name" no TEMPLATE, e não dar erro.
+import { MatCardModule } from "@angular/material/card";
+import { MatFormField } from "@angular/material/form-field";
+import { MatInputModule } from "@angular/material/input";
 import { ActivatedRoute } from "@angular/router";
 import { CoreModule } from "../../../core/core.module";
 import { Hero } from "../../../core/models/hero.model";
 import { HeroService } from "../../../core/services/hero.service";
+import { MaterialModule } from "../../../material/material.module";
 
 @Component({
     selector: "app-hero-detail",
     standalone: true,
-    imports: [FormsModule, CoreModule, FlexLayoutModule, CommonModule],
+    imports: [
+        FormsModule,
+        CoreModule,
+        FlexLayoutModule,
+        CommonModule,
+        MaterialModule,
+        MatCardModule,
+        MatFormField,
+        MatInputModule,
+    ],
     templateUrl: "./hero-detail.component.html",
     styleUrls: ["./hero-detail.component.scss"],
 })
