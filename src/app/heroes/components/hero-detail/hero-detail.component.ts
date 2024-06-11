@@ -6,6 +6,9 @@ import { MatCardModule } from "@angular/material/card";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
 
+
+import { MatFormField } from "@angular/material/form-field";
+import { MatInputModule } from "@angular/material/input";
 import { ActivatedRoute } from "@angular/router";
 import { CoreModule } from "../../../core/core.module";
 import { Hero } from "../../../core/models/hero.model";
@@ -26,8 +29,12 @@ import { MaterialModule } from "../../../material/material.module";
         MatFormFieldModule,
         MatInputModule,
     ],
-======
+
     imports: [FormsModule, CoreModule, FlexLayoutModule, CommonModule],
+
+        MatFormField,
+        MatInputModule,
+    ],
     templateUrl: "./hero-detail.component.html",
     styleUrls: ["./hero-detail.component.scss"],
 })
