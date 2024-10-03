@@ -7,7 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:curso-tour-of-heroes-frontend": "node dist/curso-tour-of-heroes-frontend/server/server.mjs"
+    "serve:ssr:curso-tour-of-heroes-frontend": "node dist/curso-tour-of-heroes-frontend/server/server.mjs",
+    "backend": "json-server --watch ./src/mocks/db.json --routes ./src/mocks/routes.json --delay 500"
   },
   "private": true,
   "dependencies": {
@@ -40,6 +41,7 @@
     "eslint": "^8.56.0",
     "eslint-plugin-react": "^7.33.2",
     "jasmine-core": "~5.1.0",
+    "json-server": "^0.17.4",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",
     "karma-coverage": "~2.2.0",

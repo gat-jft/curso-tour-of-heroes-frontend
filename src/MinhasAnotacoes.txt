@@ -164,5 +164,467 @@ Match = correspondência.
 
 -------------------------------------------------------------------------------------------------------------------------------------
 
-PAREI NO MINUTO 17:40.
+Aula 24 -
+É para aprendermos a usar o SIMULADOR DE BACKEND pra nós usarmos em nosso projeto.
 
+Pra isso, vamos instalar o pacote JSON-SERVER.
+JSON SERVER é uma biblioteca capaz de criar uma API Fake em 30 segundos e sem precisar escrever nenhuma linha de código.
+
+JSON SERVER é um simulador de backend.
+
+          Para baixá-lo:
+          npm i json-server --save-dev // i (install), --save-dev (para poder usar ele somente em Desenvolvimento).
+
+
+
+   ///// Termo que o professor usou: /////
+   ///// Intrusivo = é que está ENTRANDO demais dentro do projeto./////
+
+E qual é o objetivo disso?
+- É de não termos já de início um BACKEND para testarmos nosso frontend.
+
+
+Para os meus dados em JSON (no arquivo package.json):
+AspasDuplas (Ex "id") nos ATRIBUTOS, AspasDuplas nas String também.
+Nos NÚMEROS eu coloco sem aspas nos BOOLEANOS eu não uso AspasDuplas.
+  // "heroes": seria nossa Classe OU Registro OU Conjunto OU Tabela OU Array.
+        {
+            "heroes": [
+            {
+              "id": 1,
+              "name": "Wolverine"
+            },
+            {
+              "id": 2,
+              "name": "Homem Aranha"
+            },
+            {
+              "id": 3,
+              "name": "Batman"
+            },
+            {
+              "id": 4,
+              "name": "Mulher Maravilha"
+            },
+            {
+              "id": 5,
+              "name": "Pantera Negra"
+            },
+            {
+              "id": 6,
+              "name": "Mulher Gato"
+            },
+            {
+              "id": 7,
+              "name": "Capitão Marvel"
+            },
+            {
+              "id": 8,
+              "name": "Hulk"
+            },
+            {
+              "id": 9,
+              "name": "Homem de Ferro"
+            },
+            {
+              "id": 10,
+              "name": "Capitão América"
+            }
+          ]
+        }
+
+    // O comando para eu iniciar o nosso JSON Server (Servidor JSON), já com um BD,  é o
+       "json-server --watch -db.json"  // watch = assistir.
+
+       Pra ficar + Fácil, eu posso adicionar um script.
+       Vou no arquivo package.json, e na seção "scripts" eu digito o novo script:
+           "backend": "json-server --watch ./src/mocks/db.json"
+
+           mock = vai gerar dado FITÍCIO.
+
+           mock heroes = heróis simulados.
+
+
+
+           Quando eu digitar "npm run backend" ele cria um RESOURCE (http://localhost:3000/heroes) pra nós, na porta 3000.
+
+           RESOURCE o que é?
+           Resource - Segundo a documentação oficial do PHP, é "Um recurso é uma variável especial, que mantém uma referência a um recurso externo. Recursos são criados e usados por funções especiais."
+
+               Fonte http://php.net/manual/pt_BR/language.types.resource.php
+
+               Tipos de resource existentes http://php.net/manual/pt_BR/resource.php
+
+               Alguns exemplos
+
+               Curl - faz requisições para envio e download de dados (Utilizado geralmente para comunicar com Webservices (SOAP/REST), para fazer download/upload via servidor;
+
+               XML para trabalhar com XML no PHP de forma nativa;
+
+               Imap para e-mail (envio/recebimento), manipulação de caixas de correio eletronico.
+
+               ODBC/mysql/dbase/dba para manipulação de bancos de dados, entre outros..
+
+    // Servidores são computadores ou sistemas computacionais que atendem requisições de dispositivos clientes, através de uma ou mais redes (locais ou remotas), capazes de executar aplicações (programas), prover processamento e/ou capacidade de armazenamento de dados.
+
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+Pra que serve o comando "ng serve"?
+
+Resposta:
+Qual o papel do comando ng serve?
+O ng serve é um comando "ajudante" que permite executarmos nossa aplicação Angular em ambiente de desenvolvimento. Basicamente, quando executamos o comando, o Angular CLI cria um servidor web local para servir os arquivos da sua aplicação. Sempre que você realiza alguma alteração no código, o Angular CLI "compila" sua aplicação automaticamente. Dessa forma, a cada alteração, você pode ver o resultado no navegador.
+
+Só uma observação: não devemos utilizar esse comando em produção. Ele não gera as otimizações que o comando build gera, pois foi feito apenas para desenvolvimento, não deploy.
+
+Fonte:
+https://www.devmedia.com.br/forum/angular-qual-o-papel-do-comando-ng-serve/602336
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+
+Pra que serve o comando "npm run"?
+
+Resposta:
+npm é um REPOSITÓRIO (como o GitHub).
+
+
+O Que É npm? Introdução Básica ao Node Package Manager
+Com o npm, desenvolvedores de JavaScript podem encontrar e instalar pacotes de código em suas aplicações de rede ou projetos de servidor.
+
+Um pacote node.js é um diretório com um ou mais módulos ou bibliotecas JavaScript, usados para adicionar várias funcionalidades a aplicativos ou scripts. Sem os pacotes, os desenvolvedores e engenheiros de software precisam escrever código do zero para cada funcionalidade que seu projeto necessita.
+
+Este artigo explicará como o npm funciona e ensinará como iniciar um projeto com ele, além de instalar pacotes adicionais.
+
+
+
+O Que é npm?
+O gerenciador de pacotes Node (npm) é um dos maiores repositórios de software do mundo. Ele vem acompanhado do node.js, um ambiente de servidor de código aberto.
+
+
+Como o npm Funciona?
+Aqui estão as três funções definidoras do npm:
+
+  Repositório – o npm é um repositório amplamente utilizado para publicar projetos Node de código aberto, onde desenvolvedores podem compartilhar seu código-fonte com outros usuários do npm. Alguns dos pacotes mais famosos que você pode baixar de um repositório npm incluem Angular, React e jQuery.
+  Interface de linha de comando (CLI) – desenvolvedores executam o CLI npm a partir de um terminal ou uma ferramenta de linha de comando para instalar ou desinstalar pacotes e gerenciar versões ou dependências.
+  Registro – qualquer pacote ou módulo que você instala usando o CLI npm é baixado do registro público npm, o banco de dados de softwares JavaScript.
+
+
+
+O Que é package.json?
+Todo projeto npm contém um package.json, um arquivo localizado no diretório raiz. Ele contém os metadados de projetos ou pacotes npm, como versões de pacotes e colaboradores.
+
+O arquivo package.json simplifica a identificação, gerenciamento e instalação de um pacote. É por isso que é essencial incluir um arquivo package.json antes de publicar projetos no registro npm.
+
+Aqui está um exemplo do que um arquivo package.json contém:
+
+{
+  "name": "hostinger-npm",
+  "version": "1.0.0",
+  "description": "npm guide for beginner",
+  "main": "beginner-npm.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hostinger/example.git"
+  },
+  "keywords": [
+    "npm",
+    "example",
+    "basic"
+  ],
+  "author": "Hostinger International",
+  "license": "MIT",
+}
+
+
+Ver mais deste TEXTO em:
+https://www.hostinger.com.br/tutoriais/o-que-e-npm
+
+
+
+
+Fontes:
+// site
+https://www.hostinger.com.br/tutoriais/o-que-e-npm
+
+
+
+// Vídeo do CELSO KITAMURA:
+https://www.youtube.com/watch?v=Os3xzS1z-c8&t=237s
+
+-------------------------------------------------------------------------------------------------------------------------------------
+AULA 24
+
+O que é proxy?
+
+Proxy é o termo usado para definir os intermediários entre o usuário e seu servidor. Todos os dados que deseja acessar na Internet são disponibilizados por um servidor.
+Logo, o servidor proxy atende seus pedidos e repassa os dados do usuário à frente. O cliente conecta-se a um servidor proxy, requisita algum serviço e cabe ao proxy enviar
+a solicitação do endereço local para o servidor, traduzindo e repassando o seu pedido para o seu PC.
+
+Essa solicitação pode ser algo como um arquivo, um site na web, ou qualquer outro recurso disponível em outro servidor.
+Esse endereço local da sua máquina não pode ser acessado por qualquer rede externa. O proxy conecta o seu computador a uma rede externa, como a internet.
+Representando a "identidade do seu PC" no servidor de destino da sua solicitação.
+
+-------------------------------------------------------------------------------------------------------------------------------------
+Quando de ERROS ao rodar o programa em DESENVOLVIMENTO, e eu não tiver sabendo como resolver, melhor é voltar a versão anterior (a que deu certo).
+
+Exemplo:
+Deu msg de erro ao rodar o backend: unknown option '--routes'.
+No package.json, tenho que verificar o comando que tem '--routes'
+
+Na verdade, deram vários erros. O que fazer?
+- No "Controle do Código-fonte" do VISUAL STUDIO, vou desfazer tudo, excluindo arquivos criados (U) e modificados (M).
+  Esses arquivos estão com M e U no "Controle do Código-fonte". Basta clicar em cada arquivo, depois em DESFAZER.
+  Assim, volto sem os erros. Mas isso é só para a última versão.
+  Outras versões, tenho que ir nos COMMITS (às vezes no GitHub se já subiram pra lá).
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+Aula 24
+Métodos (verbos) que a gente tem quando se fala de uma API REST:
+ GET: obter os dadoS
+ PUT/PATCH: alterar o dado
+ POST: criar novo dado
+ DELETE: excluir um dado.
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+No NAVEGADOR, clicando em F12,
+na ABA Rede (Network), na aba "Fetch/XHR" mostra todas as requisições que a gente fizer para um BACKEND, via JSON.
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+ERRO NO  NO MINUTO 24:16.
+
+O MODULE HttpClientModule, o professor colocou ele no app.module (modulo global).
+No meu caso eu acho que eu devo colocar ele em todo Component, pq estou na versão com ComponentesStandAlone.
+POR ISSO QUE TAVA DANDO ERRO?
+
+ERRO quando eu coloquei o HttpClient no SERVIÇO HeroService e no COMPONENTE AppComponent:
+"ERRO Erro [NullInjectorError]: R3InjectorError(Standalone[_AppComponent])[_GetSettingsService -> _GetSettingsService -> _HttpClient -> _HttpClient]: NullInjectorError: Nenhum provedor para _HttpClient! "
+CORREÇÃO:
+Coloquei a função "provideHttpClient()" no arquivo app.config.ts.
+Conforme instrução de: "https://stackoverflow.com/questions/77482678/no-provider-for-httpclient".
+
+
+ele na aplicação toda ()
+
+Deu msg de erro ao rodar o backend: unknown option '--routes'.
+No package.json, tenho que verificar o comando que tem '--routes'
+
+Na verdade, são vários erros: vou desfazer todos, excluindo arquivos criados (U) e modificados (M).
+Esses arquivos estão com M e U no "Controle do Código-fonte". Vou clicar em cada arquivo, depois em DESFAZER
+
+-------------------------------------------------------------------------------------------------------------------------------------
+ERRO NA AULA 24, NO FINAL DELA. ENTÃO, NÃO FIZ O DEPLOY PARA O SITE Vercel.com (o última versão é a da aula 23)
+
+No YOUTUBE, o professor disse que no minuto 50:33, era pra fazer a baseUrl apontar para https://toh-api.vercel.app/api, e não mais
+para o HEROKU.
+
+Aí deu esse erro, conforme o aluno "@oTelePato". E comigo deu o mesmo erro.
+Então outro aluno sugeriu dar sequencia nas aulas, que futuramente vai ter uma aula pra enviar essa autorização que o backend está pedindo.
+Então, se deu exatamente a mesma mensagem que eu coloquei ali em cima, é só continuar seguindo as aulas que tá tudo certo.
+
+Veja as conversas:
+
+@oTelePato
+há 11 meses (editado)
+Quando adicionei essa rota, na minha aplicação em produção, quando faço a chamada GET, retorna um erro 403:
+"error": "Provide an Authorization header to identify yourself (anyone with at least 10 characters)."
+
+Futuramente teremos que fazer algum fluxo de cadastro para enviar essa identificação para o backend?
+
+
+
+Responder
+
+
+@matheusaguiar8477
+há 10 meses
+Usei essa url e deu erro de autorização, como posso resolver?
+
+
+
+Responder
+
+
+@oTelePato
+há 10 meses (editado)
+ @matheusaguiar8477  Opa man, então, ele vai dar erro de autorização mesmo. Eu questionei acima e ocorreu justamente o que eu esperava.
+ Mais a frente vai ter uma aula pra enviar essa autorização que o backend está pedindo. Então, se deu exatamente a mesma mensagem que eu coloquei ali em cima,
+ é só continuar seguindo as aulas que tá tudo certo.
+
+Responder
+
+
+@matheusaguiar8477
+há 10 meses (editado)
+ @oTelePato  valeu! Era exatamente esse erro que você colocou no comentário, obrigado.
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+
+    No lugar do HEROKU, o professor pediu pra usar o caminho do VERCEL, na propriedade baseUrl:
+      //baseUrl: 'https://toh-json-server-api.herokuapp.com/api/',
+
+
+
+
+
+    Tenho que configurar o HEROKU no nosso ANGULAR.
+    É na pasta ENVIRONMENTS. Mas não achei esta pasta.
+
+    O JSON SERVER em produção (no site), nao funcionará sem configurar o ambiente. Pq nossos dados estão localmente (PORTA 3000).
+    Tenho que configurar na pasta ENVIRONMENTS.
+
+    Pesquisar na internet o que é uma aplicação em produção.
+
+
+    Tenho que configurar o HEROKU no nosso ANGULAR.
+    É na pasta ENVIRONMENTS. Mas não achei esta pasta.
+     No https://cursos.alura.com.br/forum/topico-pasta-enviroments-nao-e-criada-com-o-projeto-angular-275167
+     ensina a criar esta pasta, com os seus arquivos enviroments.ts etc.
+     O comando é: ng generate environments
+
+
+Bom dia! Conforme dica do nobre colega Felipe no forum https://cursos.alura.com.br/forum/topico-projeto-pasta-environments-nao-e-criada-com-o-projeto-a-partir-do-angular-14-268583
+
+Ao tentar executar o comando, o mesmo retorna o seguinte erro:
+
+Error: A collection and schematic is required during execution.
+E não consigo criar a pasta. Poderiam me ajudar?
+
+
+1 resposta
+
+por Nayanne Batista | 295.2k xp | 377 posts  Instrutor
+Instrutora
+28/02/2023
+Olá Lucas, tudo bem?
+
+Qual a versão que você está utilizando? Essa opção ng generate environments está disponível a partir da 15.1, testei aqui em um projeto e funcionou.
+
+Você também pode criar manualmente, assim:
+
+Crie a pasta environments dentro da pasta src;
+
+Crie seus ambientes personalizados, por exemplo:
+
+environment.development.ts
+environment.ts
+Atualize o arquivo angular.json:
+
+"configurations": {
+  "development": {
+    "fileReplacements": [
+        {
+          "replace": "src/environments/environment.ts",
+          "with": "src/environments/environment.development.ts"
+        }
+      ],
+      …Copiar código
+Você encontra mais detalhes sobre configurações de ambiente nessa parte da documentação.
+
+Espero ter ajudado, bons estudos!
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+HttpClient (do HttpClientModule):
+
+(alias) class HttpClient
+import HttpClient
+Performs HTTP requests. This service is available as an injectable class, with methods to perform HTTP requests. Each request method has multiple signatures, and the return type varies based on the signature that is called (mainly the values of observe and responseType).
+
+Note that the responseType options value is a String that identifies the single data type of the response. A single overload version of the method handles each response type. The value of responseType cannot be a union, as the combined signature could imply.
+
+@usageNotes
+Sample HTTP requests for the Tour of Heroes application.
+
+
+
+Tradução:
+Executa solicitações HTTP. Este serviço está disponível como uma classe injetável, com métodos para realizar solicitações HTTP. Cada método de solicitação possui múltiplas assinaturas e o tipo de retorno varia de acordo com a assinatura chamada (principalmente os valores de observe e responseType).
+
+
+
+Como as solicitações HTTP funcionam?
+Para analisar os registros de depuração de dispositivos Chrome, é necessário compreender as solicitações HTTP. Quando um dispositivo encontra uma rede Wi‑Fi e se conecta, ele envia uma solicitação HTTP sempre que precisa ir para um novo arquivo ou página. A solicitação (quando concluída) permite que um usuário navegue para onde precisar na Web. A maioria dos dispositivos funciona por uma solicitação HTTP da mesma maneira.
+Este artigo destaca cada etapa do processo de solicitação HTTP. Você também verá registros de exemplo de uma solicitação HTTP concluída em cada etapa. Você pode usar os registros e os exemplos ao analisar o registro de um dispositivo Chrome da sua organização.
+Para ver mais informações além dos registros padrão, ative o registro detalhado. Use os comandos ff_debug e wpa_debug para ver as outras linhas que contêm VERBOSE nos registros de exemplo.
+
+Os métodos usados nas solicitações Http são 9:
+GET, POST, PUT, DELETE, PATCH, HEAD, CONNECT, OPTIONS, TRACE
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+
+RESUMO DA AULA 24:
+1- Porquê do proxy.conf.json?
+- Porque quando eu estiver em DESENVOLVIMENTO (comando "ng s -o") E DIGITAR NA URL "/api", ele vai neste arquivo e busca as informações deste arquivo
+  para usar o backend na aplicação:
+  É o backend que fica no alvo (target) "target": "http://localhost:3000".
+
+  E para isso, eu tenho que configurar também o arquivo angular.json. Na seção "serve" deste arquio, eu coloco:
+  "development": {
+              "buildTarget": "curso-tour-of-heroes-frontend:build:development",
+              "proxyConfig": "src/proxy.conf.json"
+            }
+
+2- Se eu estiver em PRODUÇÃO (num site como o Vercel, GitHub ou Heroku), quando eu digitar "/api", dará erro, se eu não tiver um backend lá.
+   Após criar o backend lá, eu tenho que configurar:
+   - O arquivo angular.json com:
+        "fileReplacements": [
+                     {
+                       "replace": "src/environments/environment.ts",
+                       "with": "src/environments/environment.prod.ts"
+                     }
+
+     Para que quando estiver em produção, o ANGULAR trocar para o caminho que está na pasta ENVIRONMENTS.
+     Mas, para isso também, eu tenho que criar um ambiente (no terminal, "ng g environments"), que será a pasta ENVIRONMENTS.
+     E colocar no arquivo "environments.prod.ts", apontando para o site que tem o backend:
+          export const environment = {
+                    production: true,
+                    baseUrl: 'https://toh-json-server-api.vercel.app/api',
+          };
+
+
+
+
+ 3-     Na aula 24, deu o erro "error: 'Provide an Authorization header to identify yourself (anyone with at least 10 characters)"
+        Tradução: Forneça um cabeçalho de autorização para se identificar (qualquer pessoa com pelo menos 10 caracteres).
+
+        Esse erro ocorreu quando coloquei a baseUrl para apontar para o Vercel, para o backend buscar o HERÓIS de lá, e não do HEROKU.
+
+        Então, continuei sem subir para produção (Vercel), que um aluno ensinou que uma aula futuramente vai ter como corrigir isso.
+
+        ENTÃO, DESDE ESSE ERRO, A APLICAÇÃO NÃO MOSTRA OS HERÓIS, PQ NÃO ACHA O BACKEND.
+
+
+
+        O arquivo "angular.json" é para eu colocar as configurações do ANGULAR, como o que será necessário para a aplicação rodar quando estiver em desenvolvimento, em produção etc.
+        O arquivo "package.json" é para eu instalar (npm i ...) os pacotes usados/baixados, usados na minha aplicação.
+
+
+
+        "backend": "json-server --watch ./src/mocks/db.json --routes ./src/mocks/routes.json --delay 500"
+            // --delay é um atraso, pra mostrar que tá carregando a página.
+
+
+
+
+
+
+
+SEMPRE REVER a aula 24 - Simulando um backend.
+Ela é importantíssima. E nós vamos usar sempre nas próximas aulas.
+Baixar o vídeo desta AULA 24 e colocar no GOOGLE DRIVE também, pra sempre rever.
+
+-------------------------------------------------------------------------------------------------------------------------------------

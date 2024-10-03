@@ -55,8 +55,9 @@ export class HeroesComponent implements OnInit {
     }
 
     // "subscribe" é para a gente se INSCREVER num Observable.
+    // É sempre bom usar o "subscribe", porque assim o dado pode vir de qq luga
     //
-    // "subscribe" aqui, "Observable<T>" na classe de Service.  // É como o "async" e "await" no BACK-END. "async" no método do Controller, "await" antes da chamada do Método no Repository ou Service.
+    // "subscribe" aqui, "Observable<T>" na classe de Service (HeroService).  // É como o "async" e "await" no BACK-END. "async" no método do Controller, "await" antes da chamada do Método no Repository ou Service.
     // O sinal "=>" é pra ele retornar pra nós, de acordo com o que a gente quer.
     getHeroes(): void {
         this.heroService

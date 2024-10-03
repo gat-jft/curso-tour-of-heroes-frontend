@@ -37,8 +37,10 @@ import { Component } from "@angular/core";
 //
 // No arquivo referente às ROTAS (o app.routes.ts), eu ))
 
+import { CoreModule } from "@angular/flex-layout";
 import { AppRoutingModule } from "./app-routing.module";
-import { CoreModule } from "./core/core.module";
+import { MessagesComponent } from "./core/components/messages/messages.component";
+import { ToolbarComponent } from "./core/components/toolbar/toolbar.component";
 import { MenuItem } from "./core/models/menu-item.model";
 import { MaterialModule } from "./material/material.module";
 
@@ -51,20 +53,18 @@ import { MaterialModule } from "./material/material.module";
     imports: [
         //CommonModule, // Não preciso dele aqui, pq ele já vem EXPORTADO do CoreModule. // Quando um Módulo NOVO, o ANGULAR sempre adiciona o CommomModule. // CommomModule tem geralmente NgFor, NgIf. Que são as diretivas (comandos If, For, Swich) padrões já construídas, pra gente poder usar dentro desse Módulo NOVO.
         //FormsModule,  // Também vem importado do CoreModule.
-
         // @angular
         // Não usei nada do ANGULAR, aqui, pq o CommomModule e o FormsModule, veio importado do CoreModule.
-
         // app
         CoreModule,
-
         // Pq eu não precisei colocar a CONSTANTE "routes" nos imports ou declarações do AppRoutingModule?
         //- É pq AppRouting Module eu crie como MÓDULO, daí ele não é um COMPONENT.
         //  E a CONSTANTE "routes" já é "exportada" através do RoutingModule.forRoot(routes) ou, pelo comando RoutingModule.forChild(routes) se fosse o caso.
         AppRoutingModule,
-
         //
         MaterialModule,
+        MessagesComponent,
+        ToolbarComponent,
     ],
 })
 export class AppComponent {

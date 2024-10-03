@@ -37,6 +37,13 @@
           }
         }
       }
+    },
+    {
+      "type": "npm",
+      "script": "backend",
+      "problemMatcher": [],
+      "label": "npm: backend",
+      "detail": "json-server --watch ./src/mocks/db.json --routes ./src/mocks/routes.json"
     }
   ]
 }
