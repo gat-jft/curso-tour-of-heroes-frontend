@@ -12,6 +12,8 @@
     "backend": "json-server --watch ./src/mocks/db.json --routes ./src/mocks/routes.json --delay 500"
 
     "serve:ssr:curso-tour-of-heroes-frontend": "node dist/curso-tour-of-heroes-frontend/server/server.mjs"
+    "serve:ssr:curso-tour-of-heroes-frontend": "node dist/curso-tour-of-heroes-frontend/server/server.mjs",
+    "backend": "json-server --watch ./src/mocks/db.json --routes ./src/mocks/routes.json --delay 500"
   },
   "private": true,
   "dependencies": {
