@@ -1,5 +1,14 @@
 <h1>My Heroes</h1>
 
+<!--  Código TESTE. na aula 25-->
+<!--<mat-spinner *ngIf="heroService.loading"></mat-spinner> -->
+<!-- "mat-spinner" é pra eu poder usar o "mat-spinner", que é a barra GIRATÓRIA.
+
+     " *ngIf="heroService.loading", esse loading SOZINHO está subentendido 
+     como TRUE, já que "loading" é a nossa variável (BOOLEANA) guiadora. 
+     Assim, se der CERTO (true), mostrará ESTA (<mat-spinner>) a barra 
+    Giratória
+-->
 <mat-table [dataSource]="heroes" class="mat-elevation-z8">
     <!-- [dataSource] é a origem dos dados. No caso é o heroes (nosso ARRAY), que a gente vai exibir.. -->
 

@@ -1,0 +1,28 @@
+<!-- <div class="spinner-container" *ngIf="false"> -->
+<div class="spinner-container" *ngIf="this.loadingService.loading$ | async">
+    <mat-spinner></mat-spinner>
+</div>
+<!-- "*ngIf="this.loadingService.loading$ | async": ASSIM, ESTAMOS FAZENDO O subscribe() DIRETAMENTE NA NOSSA VIEW (arquivo .html). E NÃO NO ARQUIVO .ts 
+ // Quando o MÉTODO subscribe(), a gente tá falando dele em template (VIEW), a gente tem que usar um PIPE (|) nativo do ANGULAR: o pipe "| async".   
+ // Dessa forma, o próprio ANGULAR vai cuidar de fazer o "subscribe()" lá no loading lá no loading$ (variável). Então se o loading$ mudar pra true (vai mostrar o spinner). Se o loading$ mudar prá false (vai esconder o spinner). 
+-->
+<!--- *ngIf FALSE, então não vai realizar por enquanto o SPINNER (barra giratória de LOADING...)-->
+<!-- O ANGULAR permite fazer TAMBÉM o subscribe() diretamente na VIEW (arquivo ...component.html, que neste
+     caso é ESTE Component, e não somente no arquivo loading.component.ts   -->
+
+<!--
+     O que é um Pipe Angular
+        Pipe nos ajuda a transformar dados que estão em um formato para outro. Eles são chamados assim pois usa o “|” para chamá-lo.
+
+        Vamos imaginar que queremos que o formato de nosso calendário na aplicação seja o seguinte DD/MM/YYYY e por padrão o JavaScript “Date()” é de outra forma.
+
+        Uma forma muito simples de lidar com isso é usando o Pipe e a sintaxe ficaria desta forma.
+
+        0
+        <p>{{ date | date: 'd/M/y' }}</p>
+        Que nos retornará o seguinte:
+
+        28/04/2022
+        https://vidafullstack.com.br/angular/o-que-e-um-pipe-angular/
+        
+-->

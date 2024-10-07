@@ -37,10 +37,14 @@ import { Component } from "@angular/core";
 //
 // No arquivo referente às ROTAS (o app.routes.ts), eu ))
 
-import { CoreModule } from "@angular/flex-layout";
+import { HttpClient } from "@angular/common/http";
+import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatInputModule } from "@angular/material/input";
 import { AppRoutingModule } from "./app-routing.module";
+import { LoadingComponent } from "./core/components/loading/loading.component";
 import { MessagesComponent } from "./core/components/messages/messages.component";
 import { ToolbarComponent } from "./core/components/toolbar/toolbar.component";
+import { CoreModule } from "./core/core.module";
 import { MenuItem } from "./core/models/menu-item.model";
 import { MaterialModule } from "./material/material.module";
 
@@ -65,10 +69,16 @@ import { MaterialModule } from "./material/material.module";
         MaterialModule,
         MessagesComponent,
         ToolbarComponent,
+        MatFormFieldModule,
+        MatInputModule,
+        LoadingComponent,
     ],
 })
 export class AppComponent {
     title = "Tour of Heroes";
+
+    constructor(private http: HttpClient) {}
+
     menuItems: MenuItem[] = [
         {
             icon: "dashboard",

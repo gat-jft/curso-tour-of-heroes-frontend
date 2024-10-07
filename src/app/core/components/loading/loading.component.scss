@@ -1,0 +1,13 @@
+.spinner-container {
+    // Tudo isso é para que o nosso BAR SPINNER (barra giratória do LOADING...) vá para o centro da tela.
+    position: fixed;
+    background: rgba(0, 0, 0, 0.32); // fundo CINZA. // 000 é preto, 0,32 é pra dar uma opacidadde no preto deixando ele cinza.   
+    height: 100%; // altura
+    width: 100%; // largura
+    display: flex; // exibição // display flex: ele vai dispor em linha
+    justify-content: center; //justificar o conteúdo // precisa dele quando usa o flex acima, para definir a linha (horizontal ou vertical).
+    align-items: center; // vai pro centro da tela.
+    top: 0; // top e left: para tirar as bordas laterais.
+    left: 0; 
+    z-index: 2000; // "z-index:" é para que o nosso LOADING fique na frente de qq outro Component (dos HEROES e das MESSAGES na tela). // Qq valor positivo, ele vai pra frente, e qq valor negativo (ex.: -1), ele vai prá trás.
+}

@@ -23,8 +23,24 @@ Vou digitando e esperando pq meu PC é lento. KKKKKKK.
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+RODAR (ABRINDO O NAVEGADOR DENTRO DO VS CODE) O NAVEGADOR DENTRO DO VS CODE:
+Clico na funcionalidade do VS CODE chamada "Simple Browser".
+Como:
+Ctrl + Shift + P
+Clico em "Simple Browse: Show"
+Digito o caminho da aplicaçao. Exemplo: "http://localhost:4200/heroes/2"
 
 
+
+
+Depois:
+Clico no VS CODE no ícone "Dividir o Editor à direita" e movo esta guia do caminho prá esta divisão do editor.
+
+
+Fonte:
+https://renatogroffe.medium.com/dicas-de-visual-studio-code-testes-com-browser-interno-gera%C3%A7%C3%A3o-de-guids-pt-12-d1090137082f
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 
@@ -618,6 +634,20 @@ RESUMO DA AULA 24:
             // --delay é um atraso, pra mostrar que tá carregando a página.
 
 
+ 4- USABILIDADE Tudo que facilita pro USUÁRIO.
+
+
+ 5- O QUE É UM OBSERVABLE?
+    Resumidamente, com um Observable podemos:
+• Receber dados várias vezes e em vários momentos
+• Nos inscrever para receber dados de um mesmo Observable em vários pontos da aplicação
+• Executar alguma operação quando o dado for recebido com sucesso
+• Executar alguma operação quando emitir erro
+• Executar alguma operação quando completar
+
+6- Provider, Service, Factory - Qual a diferença?
+   Ver a página:
+   https://angeliski.com.br/provider-service-factory-qual-a-diferenca?x-host=angeliski.com.br
 
 
 
@@ -628,3 +658,168 @@ Ela é importantíssima. E nós vamos usar sempre nas próximas aulas.
 Baixar o vídeo desta AULA 24 e colocar no GOOGLE DRIVE também, pra sempre rever.
 
 -------------------------------------------------------------------------------------------------------------------------------------
+
+RESUMO DA AULA 25
+
+PRIMEIRO eu rodo a aplicação (ng s -o), depois acesso o backend (npm run backend).
+Senão dá ERRO.
+
+
+ERRO:
+// Mostrar o LOADING... (barra giratória)
+// ESTE COMANDO E O COMANDO DE OCULTAR A BARRA GIRATÓRIA ABAIXO, TINHA SIDO USADO COM O CONCEITO
+// DE INTERCEPTOR: COMANDO ng g i src/interceptors/loading --skip-tests.
+// SÓ QUE NÃO TAVA FUNCIONANDO NO ANGULA v17.
+// ENTÃO, COLOQUEI ESTES COMANDOS QUE IRIAM PARA O INTERCEPTOR AQUI: show() e hide().
+// No getHeroes() funcionou o loadingService.show() e o loadingService.hide() também.
+// Já no getHero() não funcionou o LOADING.... Porque será? Então tirei o também o
+// loadingService.hide() do finalize() do getHero().
+// PARA CRIAR O INTERCEPTOR, PRECISEI: LoadingComponent, LoadingService, LoadingInterceptor.
+//
+// Como deu erro, COMENTEI o interceptor (LoadingInterceptor).
+// Assim, deixando o que o LoadingInterceptor deveria fazer no método getHeroes() e getHero().
+// E não injetei ele no appconfig.ts, como um PROVIDER.
+//
+// Ler:
+// Provider, Service, Factory - Qual a diferença?
+// https://angeliski.com.br/provider-service-factory-qual-a-diferenca?x-host=angeliski.com.br
+
+
+MENSAGEM QUANDO NÃO ACIONEI OS DADOS ("npm run backend" OU um mock):
+"07:01:48 [vite] http proxy error at /api/heroes:
+AggregateError
+    at __node_internal_ (node:internal/errors:174:15)
+    at internalConnectMultiple (node:net:1114:18)
+    at afterConnectMultiple (node:net:1667:5)
+ERROR HttpErrorResponse {"
+
+
+TODA VEZ QUE EU FIZER UMA ALTERAÇÃO NO PROJETO
+Tenho que recompilar o mesmo, senão dá erro.
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+O que são EVENTOS na programação web frontend?
+
+Os eventos são basicamente um CONJUNTO DE AÇÕES que são realizadas em um determinado elemento da página web, seja ele um texto, uma imagem,
+ou uma div, por exemplo. Muitas das interações do usuário que está visitando sua página com o conteúdo do seu site podem ser consideradas eventos.
+
+AÇÕES:
+onBlur
+onChange
+onClick
+onFocus
+onKeyPress
+onLoad
+onMouseOver
+onMouseOut
+onSubmit
+
+
+
+
+
+
+
+
+onBlur
+onChange
+onClick
+onFocus
+onKeyPress
+onLoad
+onMouseOver
+onMouseOut
+onSubmit
+
+Veja esta fonte também:
+https://www.devmedia.com.br/trabalhando-com-eventos-em-javascript/28521#:~:text=Os%20eventos%20s%C3%A3o%20basicamente%20um,site%20podem%20ser%20consideradas%20eventos.
+
+JavaScript é uma linguagem que cada vez mais vem crescendo e caindo no gosto popular. Com o passar do tempo, foram se tornando conhecidas as inúmeras coisas que eram possíveis de serem realizadas com essa linguagem, então é por isso que ela cada vez mais ganha mais adeptos.
+
+No artigo de hoje vamos entender um pouco o que são e como funcionam os eventos em JavaScript.
+
+O que são eventos?
+Os eventos são basicamente um conjunto de ações realizadas em um determinado elemento da página web, seja ele um texto, uma imagem, ou uma div, por exemplo. Muitas das interações do usuário que está visitando sua página com o conteúdo de seu site podem ser consideradas eventos.
+
+Existe uma variedade de eventos definidos para uso em JavaScript, abaixo podemos ver alguns dos principais e mais utilizados:
+
+onBlur	    remove o foco do elemento
+onChange	  muda o valor do elemento
+onClick	    o elemento é clicado pelo usuário
+onFocus	    o elemento é focado
+onKeyPress	o usuário pressiona uma tecla sobre o elemento
+onLoad	    carrega o elemento por completo
+onMouseOver	define ação quando o usuário passa o mouse sobre o elemento
+onMouseOut	define ação quando o usuário retira o mouse sobre o elemento
+onSubmit	  define ação ao enviar um formulário
+
+TRADUÇÃO DO TRECHO ACIMA
+
+emBlur	remover o foco do elemento
+em mudança	muda o valor do elemento
+ao clicar	o elemento é clicado pelo usuário
+em foco	o elemento é focado
+ao pressionar a tecla	o usuário pressionou uma tecla sobre o elemento
+em carga	carrega o elemento por completo
+ao passar o mouse	define ação quando o usuário passa o mouse sobre o elemento
+emMouseOut	define ação quando o usuário retira o mouse sobre o elemento
+emEnviar	definir ação ao enviar um formulário
+Como usar os eventos em JavaScript
+Existem diversas maneiras de se aplicar esses eventos aos elementos HTML , são elas:
+
+Em linha
+Em um arquivo externo, usando um manipulador de eventos
+Evento Inline
+Vamos ver um exemplo de como usar um evento de maneira inline em JavaScript.
+Dessa forma é preciso que tudo (não preciso de outros arquivos, como .css ou .ts)
+seja definido diretamente na tag do elemento, dessa forma:
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Usando o evento onClick no Javascript</title>
+</head>
+<body>
+
+<h1 onclick="this.innerHTML='Isso acontece quando usamos o evento onClick!'"
+>Clique nesse link para testar o evento onClick!</h1>
+
+</body>
+</html>
+Listagem 1 . JavaScript in-line de eventos
+No exemplo anterior que vimos de maneira inline como usar o evento onclick.
+
+Usando evento externo
+Para chamar um evento externo, precisaremos de um manipulador de eventos, nesse caso usaremos o ouvinte de eventos que adiciona ou remove um evento sobre qualquer elemento. O Event Listener disponibiliza duas funções principais, são elas:
+
+addEvent - Adiciona uma função que será disparada quando ocorrer um evento específico no objeto.
+removeEvent - Remove um listener adicionado anteriormente em um objeto e retorna true em caso de sucesso.
+Agora vamos ver um exemplo de como usar o Event Listener .
+
+<script type="text/javascript" src="/path/to/event-listener.js"></script>
+
+<form>
+	<input type="text" name="a" />
+	<input type="submit" />
+</form>
+
+<script type="text/javascript">
+var f = document.forms[0];
+addEvent(f, "submit", function( e ) { alert(f.a.value);return false; });
+addEvent(f.a, "keyup", function( e ) { f.a.value=f.a.value.toUpperCase(); });
+</script>
+Listagem 2 . Usando ouvinte de eventos
+Dessa forma nosso formulário fica limpo e sem código JavaScript, sendo feita toda a validação de forma externa.
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+PAREI NO MINUTO 27:54
+
+
+
+
+
+ -------------------------------------------------------------------------------------------------------------------------------------

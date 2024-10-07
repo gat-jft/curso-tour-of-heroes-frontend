@@ -1,4 +1,4 @@
-import { provideHttpClient } from "@angular/common/http";
+import { provideHttpClient, withFetch } from "@angular/common/http";
 import { ApplicationConfig, mergeApplicationConfig } from "@angular/core";
 import { provideClientHydration } from "@angular/platform-browser";
 import { provideServerRendering } from "@angular/platform-server";
@@ -8,7 +8,7 @@ const serverConfig: ApplicationConfig = {
     providers: [
         provideServerRendering(),
         provideClientHydration(),
-        provideHttpClient(),
+        provideHttpClient(withFetch()),
         //Por que a hidratação é importante?
         //  A hidratação melhora o desempenho do aplicativo evitando trabalho extra para recriar nós DOM. Em vez disso, o Angular tenta combinar elementos DOM existentes com a
         //  estrutura do aplicativo em tempo de execução e reutiliza nós DOM quando possível. Isso resulta em uma melhoria de desempenho que pode ser medida usando
