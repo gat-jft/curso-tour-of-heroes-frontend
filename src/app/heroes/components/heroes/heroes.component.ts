@@ -2,9 +2,6 @@ import { CommonModule } from "@angular/common";
 import { Component, OnInit } from "@angular/core";
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { FormsModule } from "@angular/forms";
-import { MatFormFieldModule } from "@angular/material/form-field";
-import { MatInputModule } from "@angular/material/input";
-import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 import { RouterModule } from "@angular/router"; // Para eu usar o "routerLink"" no TEMPLATE (arquivo HTML), pra quando eu clicar/selecionar uma rota, ele desviar para a ROTA do arquivo "appp.routes.ts".
 import { AppRoutingModule } from "../../../app-routing.module";
 import { Hero } from "../../../core/models/hero.model";
@@ -30,9 +27,6 @@ import { CoreModule } from "../../../core/core.module";
         FlexLayoutModule,
         MaterialModule,
         AppRoutingModule,
-        MatProgressSpinnerModule,
-        MatFormFieldModule,
-        MatInputModule,
     ],
 })
 // Com o 'implements OnInit', o OnInit ele faz parte do ciclo de vida do
@@ -51,13 +45,6 @@ export class HeroesComponent implements OnInit {
 
     heroes: Hero[] = []; // Nossa propriedade 'heroes' agora vai ser do Tipo Heroes[], e ela vai inicar vazia ([]).
 
-    // Código TESTE na aula 25.
-    //constructor(public heroService: HeroService) {}
-
-    //Todo Component que tem métodos, eles devem ficar isolados num Service (classe externa só para métodos).
-    // Daí, eu chamo eles por meio da ID (Injeção de Dependência), que nada mais é que colocar o Service no
-    // MÉTODO construtor(){} de um Component ou Service também.
-    //
     // Pra eu poder utilizar o nosso Service (HeroService), eu vou ter que adiciconá-lo (injeção de dependência) no Construtor desta Classe.
     // private: é que ele vai poder ser enxergado dentro deste arquivo. E ele não vai ser possível ser enxergado dentro de nosso template (heroes.component.html).
     constructor(private heroService: HeroService) {}

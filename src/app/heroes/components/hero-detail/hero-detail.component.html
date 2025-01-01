@@ -4,7 +4,7 @@
     <mat-card>
         <mat-card-content fxLayout="column">
             <mat-form-field>
-                <mat-label>ID</mat-label>
+                <label>ID</label>
                 <input matInput disabled [value]="hero.id" />
             </mat-form-field>
             <!-- <mat-label> não está funcionando. <label> funciona.-->
@@ -13,10 +13,10 @@
             <!-- value="{{hero.name}}", nessa propriedade, eu poderia usar como COLCHETES também. Fica mais fácil, porque ao invés de eu colocar as chaves duplas, {{}}, eu posso colocar o VALOR de uma propriedade nossa, ou, o VALOR de um método nosso. Assim:    [value]="hero.id".  // Então, essa é uma outra forma de escrevermos uma INTERPOLAÇÃO mais fácil, quando a gente tá usando um TEMPLATE (arquivo ;html) Angular.    Vimos isso na criação do Component HeroDetail.component, na parte de INTERPOLAÇÃO.-->
 
             <mat-form-field>
-                <mat-label>Hero name</mat-label>
+                <label>Hero name</label>
                 <input
                     id="name"
-                    matInput
+                    MatInput
                     [(ngModel)]="hero.name"
                     placeholder="Name"
                     type="text"

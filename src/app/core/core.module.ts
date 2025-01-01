@@ -1,50 +1,29 @@
 import { CommonModule } from "@angular/common";
-//import { HTTP_INTERCEPTORS } from "@angular/common/http";
 import { NgModule } from "@angular/core";
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { FormsModule } from "@angular/forms";
-import { MatFormFieldModule } from "@angular/material/form-field";
-import { MatInputModule } from "@angular/material/input";
 import { RouterModule } from "@angular/router";
 import { MaterialModule } from "../material/material.module";
-import { LoadingComponent } from "./components/loading/loading.component";
 import { MessagesComponent } from "./components/messages/messages.component";
 import { PageNotFoundComponent } from "./components/page-not-found.component";
 import { ToolbarComponent } from "./components/toolbar/toolbar.component";
-//import { LoadingInterceptor } from "./interceptors/loading.interceptor";
 
-const COMPONENTS = [
-    MessagesComponent,
-    ToolbarComponent,
-    PageNotFoundComponent,
-    LoadingComponent,
-];
+const COMPONENTS = [MessagesComponent, ToolbarComponent, PageNotFoundComponent];
 const MODULES = [
     CommonModule,
     FormsModule,
     FlexLayoutModule,
     MaterialModule,
     RouterModule,
-    MatFormFieldModule,
-    MatInputModule,
 ];
 
 @NgModule({
     declarations: [], // Aqui é para eu declarar os MÓDULOS: MessagesComponent e ToolbarComponent são "standAlone".   Daí NÃO podem ser declarados num Module.
     imports: [COMPONENTS, MODULES], // Quando um Módulo NOVO, o ANGULAR sempre adiciona o CommomModule. // CommomModule tem geralmente NgFor, NgIf. Que são as diretivas (comandos If, For, Swich) padrões já construídas, pra gente poder usar dentro desse Módulo NOVO.
     exports: [COMPONENTS, MODULES],
-
-    // Para funcionar meu spiner (de LOADING...) da aula 25, tenho colocar o providers.
-    // providers: [
-    //     {
-    //         provide: HTTP_INTERCEPTORS,
-    //         useClass: LoadingInterceptor,
-    //         multi: true,
-    //     }, // Criei um OBJETO. Ele vai ser um HTTP_INTERCEPTORS. Vou passar o userClass e vou usar a Classe "Interceptador chamada 'LoadingInterceptor'". // E vou passar o "multi: true": indica que eu posso ter + de 1 classe de interceptors.
-    // ],
 })
-export class CoreModule {}
-/*
+export class CoreModule {
+    /*
       // Esse CONSTRUTOR desta Classe (Módulo) não pode ser usado em nosso projeto, pq o CoreModule é usado em vários Components.
       // Ele pode ser bloqueado, pq nossos Components são na versão do ANGULAR com os Components "standAlone", ie, sem a necessidade de estar em um Módulo.
       //     
@@ -66,6 +45,7 @@ export class CoreModule {}
             //    MAS, QUANDO for uma interpolação, não funciona "" ou ''. // Só funciona com a STRING entre CRASES duplas. (` `)
         }
     */
+}
 
 /*
     // Código abaixo (um CONSTRUTOR), é pra gente BLOQUEAR o CoreModule, para que ele não seja importado em outros Mòdulos: para que ele seja importado somente no AppModule.
